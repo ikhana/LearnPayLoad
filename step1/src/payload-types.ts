@@ -67,6 +67,7 @@ export interface Config {
   };
   blocks: {};
   collections: {
+    newproducts: Newproduct;
     products: Product;
     users: User;
     media: Media;
@@ -76,6 +77,7 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
+    newproducts: NewproductsSelect<false> | NewproductsSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
@@ -114,6 +116,16 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "newproducts".
+ */
+export interface Newproduct {
+  id: number;
+  name?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -169,6 +181,10 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
+        relationTo: 'newproducts';
+        value: number | Newproduct;
+      } | null)
+    | ({
         relationTo: 'products';
         value: number | Product;
       } | null)
@@ -221,6 +237,15 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "newproducts_select".
+ */
+export interface NewproductsSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

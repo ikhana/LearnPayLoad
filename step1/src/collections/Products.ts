@@ -28,6 +28,14 @@ export const Products: CollectionConfig = {
     },
 
     {
+      name: 'category',
+      type: 'relationship',
+      relationTo: 'categories',
+      hasMany: false,
+      required: true,
+    },
+
+    {
       name: 'status',
       type: 'select',
       options: [

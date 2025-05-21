@@ -1,4 +1,5 @@
 import { CollectionConfig } from 'payload'
+import { upload } from 'payload/shared'
 
 export const Products: CollectionConfig = {
   slug: 'products',
@@ -33,6 +34,36 @@ export const Products: CollectionConfig = {
       relationTo: 'categories',
       hasMany: false,
       required: true,
+    },
+
+    {
+      name: 'mainImage',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      admin: {
+        description: 'The main image for this product',
+      },
+    },
+
+    {
+      name: 'images',
+      type: 'array',
+      label: 'additional images',
+      admin: {
+        description: 'Additional product images (optional)',
+      },
+
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          admin: {
+            description: 'addotional images for product (optional)',
+          },
+        },
+      ],
     },
 
     {

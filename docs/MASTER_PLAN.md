@@ -49,9 +49,9 @@ in that step, never abstract.
 |---|---|---|---|---|
 | 00 | Setup — scaffold Payload, run dev server, create first admin user | What TS is · `tsconfig.json` · `strict` | `[x]` | [steps/00-setup.md](steps/00-setup.md) |
 | **01** | **Your first collection — Posts with fields** | Interfaces & type aliases — annotating `CollectionConfig` | `[~]` | _(see 01.1–01.11 below)_ |
-| 01.1 | Skeleton Posts collection — register, no fields | `import type` + `: CollectionConfig` annotation | `[~]` | [steps/01-1-skeleton.md](steps/01-1-skeleton.md) |
-| 01.2 | Add `title` field | Field-option autocomplete from the annotation | `[ ]` | [steps/01-2-title.md](steps/01-2-title.md) |
-| 01.3 | Add `slug` field | Boolean type constraints (`unique`, `index`) | `[ ]` | [steps/01-3-slug.md](steps/01-3-slug.md) |
+| 01.1 | Skeleton Posts collection — register, no fields | `import type` + `: CollectionConfig` annotation | `[x]` | [steps/01-1-skeleton.md](steps/01-1-skeleton.md) |
+| 01.2 | Add `title` field | Field-option autocomplete from the annotation | `[x]` | [steps/01-2-title.md](steps/01-2-title.md) |
+| 01.3 | Add `slug` field | Boolean type constraints (`unique`, `index`) | `[~]` | [steps/01-3-slug.md](steps/01-3-slug.md) |
 | 01.4 | Add `excerpt` field (textarea) | Nested admin config typing | `[ ]` | [steps/01-4-excerpt.md](steps/01-4-excerpt.md) |
 | 01.5 | Add `content` field (richText / Lexical) | Field-type-specific shape narrowing | `[ ]` | [steps/01-5-content.md](steps/01-5-content.md) |
 | 01.6 | Add `featuredImage` field (upload) | Literal-type `relationTo` narrowing | `[ ]` | [steps/01-6-featured-image.md](steps/01-6-featured-image.md) |

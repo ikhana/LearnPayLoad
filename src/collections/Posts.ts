@@ -7,5 +7,12 @@ export const Posts: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    {
+      name: 'slug',
+      type: 'text',
+      unique: true,
+      index: true,
+      admin: { position: 'sidebar' },
+    },
   ],
 }

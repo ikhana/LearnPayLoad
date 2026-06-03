@@ -14,5 +14,12 @@ export const Posts: CollectionConfig = {
       index: true,
       admin: { position: 'sidebar' },
     },
+    {
+      name: 'excerpt',
+      type: 'textarea',
+      admin: {
+        description: 'Short summary used on listing pages and as a fallback meta description.',
+      },
+    },
   ],
 }

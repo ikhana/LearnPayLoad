@@ -21,5 +21,9 @@ export const Posts: CollectionConfig = {
         description: 'Short summary used on listing pages and as a fallback meta description.',
       },
     },
+    {
+      name: 'content',
+      type: 'richText',
+    },
   ],
 }

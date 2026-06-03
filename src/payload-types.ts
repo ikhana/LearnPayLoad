@@ -190,6 +190,7 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
+  featuredImage?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -320,6 +321,7 @@ export interface PostsSelect<T extends boolean = true> {
   slug?: T;
   excerpt?: T;
   content?: T;
+  featuredImage?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -25,5 +25,10 @@ export const Posts: CollectionConfig = {
       name: 'content',
       type: 'richText',
     },
+    {
+      name: 'featuredImage',
+      type: 'upload',
+      relationTo: 'media',
+    },
   ],
 }

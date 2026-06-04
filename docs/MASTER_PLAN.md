@@ -48,7 +48,7 @@ in that step, never abstract.
 | # | Step (Payload concept) | TS lesson | Status | Doc |
 |---|---|---|---|---|
 | 00 | Setup — scaffold Payload, run dev server, create first admin user | What TS is · `tsconfig.json` · `strict` | `[x]` | [steps/00-setup.md](steps/00-setup.md) |
-| **01** | **Your first collection — Posts with fields** | Interfaces & type aliases — annotating `CollectionConfig` | `[~]` | _(see 01.1–01.11 below)_ |
+| **01** | **Your first collection — Posts with fields** | Interfaces & type aliases — annotating `CollectionConfig` | `[x]` | _(see 01.1–01.11 below)_ |
 | 01.1 | Skeleton Posts collection — register, no fields | `import type` + `: CollectionConfig` annotation | `[x]` | [steps/01-1-skeleton.md](steps/01-1-skeleton.md) |
 | 01.2 | Add `title` field | Field-option autocomplete from the annotation | `[x]` | [steps/01-2-title.md](steps/01-2-title.md) |
 | 01.3 | Add `slug` field | Boolean type constraints (`unique`, `index`) | `[x]` | [steps/01-3-slug.md](steps/01-3-slug.md) |
@@ -59,7 +59,7 @@ in that step, never abstract.
 | 01.8 | Add `status` field (select) | Tagged-options shape | `[x]` | [steps/01-8-status.md](steps/01-8-status.md) |
 | 01.9 | Admin polish (`useAsTitle`, `defaultColumns`, `group`) | Collection-level admin types | `[x]` | [steps/01-9-admin-polish.md](steps/01-9-admin-polish.md) |
 | 01.10 | Generate types (`pnpm generate:types`) | Reading `payload-types.ts` | `[x]` | [steps/01-10-generate-types.md](steps/01-10-generate-types.md) |
-| 01.11 | First test post + verify whole step | Type-safe consumption in practice | `[~]` | [steps/01-11-test-post.md](steps/01-11-test-post.md) |
+| 01.11 | First test post + verify whole step | Type-safe consumption in practice | `[x]` | [steps/01-11-test-post.md](steps/01-11-test-post.md) |
 | 02 | Relationships — relate Posts to Categories | Generic types — `Field<T>`, `RelationshipField` | `[ ]` | _(coming)_ |
 | 03 | Globals — header, footer, site config | Literal types & `as const` | `[ ]` | _(coming)_ |
 | 04 | Uploads — Media collection, image sizes, focal point | Discriminated unions | `[ ]` | _(coming)_ |

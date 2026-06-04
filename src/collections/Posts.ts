@@ -1,6 +1,13 @@
 import type { CollectionConfig } from 'payload'
 export const Posts: CollectionConfig = {
   slug: 'posts',
+  admin: {
+    useAsTitle: 'title',
+    defaultColumns: ['title', 'status', 'publishedAt', 'updatedAt'],
+    group: 'Content',
+    description:
+      'Blog posts and articles — the canonical content type our AI SEO plugin will analyze.',
+  },
   fields: [
     {
       name: 'title',

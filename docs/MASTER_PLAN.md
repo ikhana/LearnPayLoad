@@ -56,9 +56,9 @@ in that step, never abstract.
 | 01.5 | Add `content` field (richText / Lexical) | Field-type-specific shape narrowing | `[x]` | [steps/01-5-content.md](steps/01-5-content.md) |
 | 01.6 | Add `featuredImage` field (upload) | Literal-type `relationTo` narrowing | `[x]` | [steps/01-6-featured-image.md](steps/01-6-featured-image.md) |
 | 01.7 | Add `publishedAt` field (date) | Nested type config (picker options) | `[x]` | [steps/01-7-published-at.md](steps/01-7-published-at.md) |
-| 01.8 | Add `status` field (select) | Tagged-options shape | `[~]` | [steps/01-8-status.md](steps/01-8-status.md) |
-| 01.9 | Admin polish (`useAsTitle`, `defaultColumns`, `group`) | Collection-level admin types | `[ ]` | [steps/01-9-admin-polish.md](steps/01-9-admin-polish.md) |
-| 01.10 | Generate types (`pnpm generate:types`) | Reading `payload-types.ts` | `[ ]` | [steps/01-10-generate-types.md](steps/01-10-generate-types.md) |
+| 01.8 | Add `status` field (select) | Tagged-options shape | `[x]` | [steps/01-8-status.md](steps/01-8-status.md) |
+| 01.9 | Admin polish (`useAsTitle`, `defaultColumns`, `group`) | Collection-level admin types | `[x]` | [steps/01-9-admin-polish.md](steps/01-9-admin-polish.md) |
+| 01.10 | Generate types (`pnpm generate:types`) | Reading `payload-types.ts` | `[~]` | [steps/01-10-generate-types.md](steps/01-10-generate-types.md) |
 | 01.11 | First test post + verify whole step | Type-safe consumption in practice | `[ ]` | [steps/01-11-test-post.md](steps/01-11-test-post.md) |
 | 02 | Relationships — relate Posts to Categories | Generic types — `Field<T>`, `RelationshipField` | `[ ]` | _(coming)_ |
 | 03 | Globals — header, footer, site config | Literal types & `as const` | `[ ]` | _(coming)_ |

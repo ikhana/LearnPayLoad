@@ -164,6 +164,8 @@ export interface Media {
   focalY?: number | null;
 }
 /**
+ * Blog posts and articles — the canonical content type our AI SEO plugin will analyze.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */

@@ -54,8 +54,8 @@ in that step, never abstract.
 | 01.3 | Add `slug` field | Boolean type constraints (`unique`, `index`) | `[x]` | [steps/01-3-slug.md](steps/01-3-slug.md) |
 | 01.4 | Add `excerpt` field (textarea) | Nested admin config typing | `[x]` | [steps/01-4-excerpt.md](steps/01-4-excerpt.md) |
 | 01.5 | Add `content` field (richText / Lexical) | Field-type-specific shape narrowing | `[x]` | [steps/01-5-content.md](steps/01-5-content.md) |
-| 01.6 | Add `featuredImage` field (upload) | Literal-type `relationTo` narrowing | `[~]` | [steps/01-6-featured-image.md](steps/01-6-featured-image.md) |
-| 01.7 | Add `publishedAt` field (date) | Nested type config (picker options) | `[ ]` | [steps/01-7-published-at.md](steps/01-7-published-at.md) |
+| 01.6 | Add `featuredImage` field (upload) | Literal-type `relationTo` narrowing | `[x]` | [steps/01-6-featured-image.md](steps/01-6-featured-image.md) |
+| 01.7 | Add `publishedAt` field (date) | Nested type config (picker options) | `[~]` | [steps/01-7-published-at.md](steps/01-7-published-at.md) |
 | 01.8 | Add `status` field (select) | Tagged-options shape | `[ ]` | [steps/01-8-status.md](steps/01-8-status.md) |
 | 01.9 | Admin polish (`useAsTitle`, `defaultColumns`, `group`) | Collection-level admin types | `[ ]` | [steps/01-9-admin-polish.md](steps/01-9-admin-polish.md) |
 | 01.10 | Generate types (`pnpm generate:types`) | Reading `payload-types.ts` | `[ ]` | [steps/01-10-generate-types.md](steps/01-10-generate-types.md) |

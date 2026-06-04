@@ -40,5 +40,24 @@ export const Posts: CollectionConfig = {
         },
       },
     },
+    {
+      name: 'status',
+      type: 'select',
+      options: [
+        {
+          label: 'Draft',
+          value: 'draft',
+        },
+        {
+          label: 'Published',
+          value: 'published',
+        },
+      ],
+      defaultValue: 'draft',
+      required: true,
+      admin: {
+        position: 'sidebar',
+      },
+    },
   ],
 }

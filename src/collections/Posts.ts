@@ -30,5 +30,15 @@ export const Posts: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
     },
+    {
+      name: 'publishedAt',
+      type: 'date',
+      admin: {
+        position: 'sidebar',
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
+      },
+    },
   ],
 }

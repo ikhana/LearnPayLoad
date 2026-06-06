@@ -34,42 +34,20 @@ This is the whole pitch of Payload: define the shape, the admin appears.
 
 ## 3. What you'll learn — TypeScript
 
-One TS concept this sub-step: **a property can be typed not as "any string" but as "one specific string from a list."**
+> **TS Lesson:** [03 — Literal types & unions](../ts-lessons/03-literal-types.md)
+>
+> Read that lesson first if unions are new. It uses a traffic light
+> example before we get to Payload.
 
-### 3a. What you've seen so far
+One concept: **string literal unions**. The `type` property on a field
+isn't typed as "any string" — it's a union of every valid Payload field
+type: `'text' | 'textarea' | 'richText' | 'date' | ...`. Type
+`type: 'tex'` and the editor rejects it. The union forces you to pick
+a real option.
 
-Up to now you've seen plain types — a number, a string, a boolean. The most basic annotation says "this is any string":
-
-```ts
-const name: string = "Inaam"  // any string is fine
-```
-
-You could change `"Inaam"` to `"Anything else"` and TS wouldn't care.
-
-### 3b. Literal types
-
-But sometimes you want to say "this isn't *any* string — it has to be *exactly* one of these specific strings." That's called a **literal type**.
-
-```ts
-const status: 'draft' | 'published' = 'draft'   // OK
-const status: 'draft' | 'published' = 'pulbised' // ERROR — not in the list
-```
-
-The `|` (pipe) is read as "or" — `status` must be either the literal string `'draft'` OR the literal string `'published'`. Nothing else.
-
-This is called a **string literal union** ("union" = a combination of allowed values).
-
-### 3c. Where you'll see it in this sub-step
-
-When you type a field config inside the `fields` array, the `type` property
-isn't typed as `string` — it's typed as the union of every valid Payload
-field type: `'text' | 'textarea' | 'richText' | 'date' | 'upload' | 'relationship' | 'select' | ...` and so on.
-
-That's why, when you type `type: 'tex'`, the editor will reject it. `'tex'`
-isn't in the list. The annotation forces you to pick one of the real
-options.
-
-The steps below show you this in action.
+The `|` means "or." `'draft' | 'published'` means "only these two
+exact strings." You'll see this pattern on field types, select options,
+and admin settings throughout the project.
 
 ---
 

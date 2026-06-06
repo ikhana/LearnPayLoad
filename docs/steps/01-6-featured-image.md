@@ -36,25 +36,18 @@ record) or picks an existing one.
 
 ## 3. What you'll learn — TypeScript
 
-One TS concept: **literal types that come from the project itself**.
+> **TS Lesson:** [03 — Literal types & unions](../ts-lessons/03-literal-types.md)
 
-### 3a. The valid collection slugs are known to TypeScript
+One concept: **project-derived literal types**. `relationTo: 'media'`
+doesn't accept any string — TypeScript knows the valid collection slugs
+(`'users'`, `'media'`, `'posts'`) and rejects anything else.
 
-When you set `relationTo: 'media'`, TypeScript doesn't accept *any* string. It accepts only the slugs of collections that actually exist in your project — Payload teaches TS about them through generated types.
+Try `relationTo: 'manfacturers'` (typo) — red squiggle. Try
+`relationTo: 'comments'` (doesn't exist) — red squiggle. Rename a
+collection in `payload.config.ts` and every `relationTo` pointing at
+the old name lights up immediately.
 
-In our project right now, the valid options are `'users'`, `'media'`, and `'posts'`. You can write `relationTo: 'media'` but not `relationTo: 'manfacturers'` (a typo) or `relationTo: 'comments'` (a collection we haven't built).
-
-### 3b. Why this is powerful
-
-In a regular language, "string for the collection name" would just mean "any string." Typos would silently fail at runtime — the API would return "no such collection" only when someone actually exercised the relationship in production.
-
-In a TS-aware framework like Payload, the project's own collection slugs become a literal union type. Rename a collection in `payload.config.ts`, and every `relationTo` pointing at the old name lights up red instantly.
-
-### 3c. The narrowing is strongest after `pnpm generate:types`
-
-A subtle thing: for the cleanest narrowing of `relationTo`, Payload uses the *generated* types in `payload-types.ts`. That file gets regenerated whenever you run `pnpm generate:types` (which we do in 01.10).
-
-You'll see some autocomplete even before then, from Payload's internal type machinery. But the most reliable experience is "generate types after every schema change." That's the loop we'll formalize in 01.10.
+This narrowing is strongest after `pnpm generate:types` (step 01.10).
 
 ---
 

@@ -43,34 +43,25 @@ the right teaching step — it covers more of the type system.
 
 ## 3. What you'll learn — TypeScript
 
-One TS concept: **union types between two different *shapes*** (not just two literal strings).
+> **TS Lessons:** [03 — Literal types & unions](../ts-lessons/03-literal-types.md), [05 — Arrays](../ts-lessons/05-arrays.md)
 
-### 3a. Two valid shapes for the same property
-
-You've seen literal unions of strings (`'text' | 'textarea' | 'richText'` in 01.2). You've seen nested object types (01.4). A union can also be between two *different shapes entirely*. Payload's `options` is typed roughly like:
+One concept: **unions between different shapes**. Payload's `options`
+accepts two forms:
 
 ```ts
-type SelectOption =
-  | string                                // short form
-  | { label: string; value: string }      // long form
+// Short form — string array
+options: ['draft', 'published']
 
-type SelectField = {
-  options: SelectOption[]
-  // ...
-}
+// Long form — object array
+options: [{ label: 'Draft', value: 'draft' }, { label: 'Published', value: 'published' }]
 ```
 
-In plain English: `options` is an array whose items are *either* a plain string *or* an object with `label` and `value`. The same array can't mix the two — but you can choose which form to use per field.
+The type is roughly `(string | { label: string; value: string })[]`.
+You pick one form per field. The type system validates whichever form
+you chose — try mixing both in one array and TS rejects it.
 
-### 3b. The compiler enforces consistency
-
-Try mixing both shapes in one `options` array. TS will reject it — the type expects every item in the array to be the same shape.
-
-This is one of the most useful patterns in TS: when an API offers a convenience form *and* a verbose form, the type system makes sure you don't accidentally half-and-half them.
-
-### 3c. Why this pattern matters
-
-Going forward, you'll see this shape often: a property accepts a string *or* a more detailed object. The purpose is the same — "give the easy version when you're being lazy, give the powerful version when you need control." Same pattern in plugin APIs, hooks, access functions.
+This pattern (simple string *or* detailed object) shows up throughout
+Payload: plugins, hooks, access functions.
 
 ---
 

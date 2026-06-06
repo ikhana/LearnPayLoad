@@ -36,51 +36,20 @@ configured globally in step 00).
 
 ## 3. What you'll learn — TypeScript
 
-One TS concept: **complex types vs primitive types**.
+> **TS Lesson:** [02 — Object types & interfaces](../ts-lessons/02-object-types.md)
 
-### 3a. Primitive vs complex
+One concept: **complex types vs primitives**. Previous fields were
+`string` or `boolean` — single values. The `richText` field stores a
+Lexical JSON tree, a deeply nested object. In the generated types,
+`content` won't be `string` — it'll be `{ root: { children: ... } }`.
 
-In 01.2 and 01.3 you saw primitive types: `string`, `boolean`. A primitive is a single, atomic value — no internal structure.
+The type system protects you: if you try `<p>{post.content}</p>` on
+the frontend, TypeScript flags it because an object isn't renderable
+as a string. You'd need a converter like `lexicalToHtml(post.content)`.
 
-A **complex type** is one that has internal structure. An object with properties is complex. An array of objects is complex. The Lexical document tree is a deeply nested complex type:
-
-```ts
-type LexicalDocument = {
-  root: {
-    type: 'root'
-    children: Array<{
-      type: string         // 'paragraph', 'heading', 'list', etc.
-      children: Array<...> // recursive!
-      format?: number      // formatting flags
-      // many more properties
-    }>
-  }
-}
-```
-
-You don't need to memorize this — Payload handles it. But knowing the value is *structured* (not a string) matters once we start using the data.
-
-### 3b. The generated type won't be `string`
-
-Later (in 01.10) when you run `pnpm generate:types`, the generated `Post` type will look like:
-
-```ts
-type Post = {
-  title: string
-  slug: string
-  excerpt: string | null
-  content: { root: { children: ... } } | null   // ← NOT string!
-  // ...
-}
-```
-
-If you tried to do `<p>{post.content}</p>` on the frontend, React would scream (it doesn't know how to render an arbitrary object). You'd need a converter function — `lexicalToHtml(post.content)` or similar — to turn the tree into renderable markup.
-
-### 3c. Why this matters
-
-Plain text fields give you string-in, string-out simplicity. Rich text fields give you structured-in, structured-out — which means more power (you can analyze the structure, walk the tree, transform nodes) but also more responsibility (you can't treat it like a string).
-
-The type system protects you from one side of the mistake: it won't let you pass `post.content` to a function expecting a string. That's a real win once we start rendering posts on the frontend.
+Plain text = string in, string out. Rich text = structured in,
+structured out. More power, more responsibility — and the types catch
+the mismatch.
 
 ---
 

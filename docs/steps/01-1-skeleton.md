@@ -36,37 +36,22 @@ then add features one at a time. No "I'll come back and verify it later."
 
 ## 3. What you'll learn — TypeScript
 
-This is your first real touchpoint with TypeScript in this curriculum. Two ideas, in plain English first.
+> **TS Lessons:** [01 — Type annotations](../ts-lessons/01-type-annotations.md), [06 — `import type`](../ts-lessons/06-import-type.md)
+>
+> If these concepts are new, read those lessons first — they have plain
+> non-Payload examples. Come back here when the ideas click.
 
-### 3a. What is a type annotation?
+Two concepts this step:
 
-JavaScript is a language where any variable can hold anything. You can write `let x = 5` and then later `x = "hello"` and the language doesn't care. TypeScript layers a type system on top: you tell the compiler what shape a value should have, and the compiler complains when you give it something else.
+1. **Type annotations** — the `: CollectionConfig` after the variable
+   name. It tells TypeScript "this object must match this shape." Your
+   editor uses it to power autocomplete and catch typos. The annotation
+   gets erased at compile time — it's scaffolding, not runtime code.
 
-**Annotations** are how you tell the compiler. They look like a colon followed by a type, sitting between the variable name and the `=`:
-
-```ts
-const Posts: CollectionConfig = { ... }
-```
-
-In plain English: *"`Posts` is a variable. Whatever I put on the right side of the `=` must match the shape called `CollectionConfig`."* The colon-then-type pattern is how TS annotations look everywhere — on variables, on function parameters, on return values.
-
-Annotations don't change what the code *does* when it runs. They get erased before your code becomes plain JavaScript. They only exist to help you while you're writing — autocomplete, typo detection, and red squiggles when something doesn't fit.
-
-### 3b. What is `import type`?
-
-Look at the top of our file:
-
-```ts
-import type { CollectionConfig } from 'payload'
-```
-
-This is a normal `import` statement with one extra word: `type`. That word says "I'm only importing this so I can use it as a type annotation — I'm not going to call it as a function or use it as a value."
-
-Why does this distinction matter? Because when TS compiles to JavaScript, anything you imported with `import type` gets *completely deleted* from the output. The line just disappears. That keeps your bundle smaller, and it prevents accidentally pulling in code at runtime that was only meant to describe shape.
-
-Rule of thumb: if all you're importing is types (capitalized things that describe shape, like `CollectionConfig`, `User`, `Field`), use `import type`. If you're importing functions or values you'll actually call (`buildConfig`, `lexicalEditor`), use a regular `import`.
-
-We'll feel both of these in the steps below.
+2. **`import type`** — importing a label, not actual code. The line
+   `import type { CollectionConfig } from 'payload'` vanishes from the
+   JavaScript output. Use `import type` whenever you're importing
+   something only for annotations.
 
 ---
 

@@ -49,47 +49,22 @@ loop is: **edit collection → generate types → use the types**.
 
 ## 3. What you'll learn — TypeScript
 
-One TS concept: **interfaces vs annotations, and the relationship between them**.
+> **TS Lesson:** [02 — Object types & interfaces](../ts-lessons/02-object-types.md) (interfaces section)
 
-### 3a. Annotation vs declaration
+One concept: **the edit → generate → use loop**.
 
-When you write:
+So far you've used types *from Payload* (`CollectionConfig`). Now
+Payload generates types *from your config* — the `Post` interface in
+`payload-types.ts` matches every field you defined.
 
-```ts
-const post: Post = { title: 'Hi', slug: 'hi', /* ... */ }
-```
-
-The `: Post` part is an *annotation* — it says "this variable should match the `Post` type."
-
-For that to work, `Post` has to be *declared* somewhere. So far, you've imported declarations from `payload` (`import type { CollectionConfig }`). The `Post` interface, on the other hand, *doesn't exist in Payload's source code* — it's specific to our project. Payload generates it from our `Posts` collection config.
-
-That's what `generate:types` does: turn our config into a TypeScript file with the matching interfaces.
-
-### 3b. What an interface looks like
-
-The generated file uses `interface` declarations:
-
-```ts
-export interface Post {
-  id: number
-  title: string
-  slug: string
-  // ...
-}
-```
-
-`interface` is one of TypeScript's two ways to declare an object shape (the other is `type`). For consuming types, they read nearly identically. The difference (mostly): interfaces can be *merged* across multiple declarations; types can't. Neither matters much here.
-
-### 3c. The "edit → generate → use" loop
-
-You'll re-run `pnpm generate:types` after every schema change for the rest of this project. Your future self will thank you for the discipline:
-
+The loop:
 1. Add a field to `Posts.ts` → save
 2. Run `pnpm generate:types`
-3. Open `payload-types.ts` → see the new field on the `Post` interface
+3. Open `payload-types.ts` → see the new field on `Post`
 4. Any code using `Post` now knows about the new field
 
-Forget step 2, and your editor will tell you `post.newField` doesn't exist even though it does in the database. The autocomplete is stale. Always regenerate.
+Forget step 2 and your editor shows stale autocomplete. Always
+regenerate after schema changes.
 
 ---
 

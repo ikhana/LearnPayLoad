@@ -31,29 +31,17 @@ reuse in later steps.
 
 ## 3. What you'll learn — TypeScript
 
-One TS concept this sub-step: **booleans, the simplest type in TypeScript**.
+> **TS Lessons:** [01 — Type annotations](../ts-lessons/01-type-annotations.md) (booleans), [04 — Optional properties & null](../ts-lessons/04-optional-and-null.md)
 
-### 3a. What is a boolean?
+Two concepts:
 
-A boolean is a value that's either `true` or `false`. Nothing else. JavaScript already has them; TypeScript types them with the keyword `boolean`:
+1. **Booleans** — `unique: true`, `index: true`, `required: true` are
+   all typed as `boolean`. Only `true` or `false` — not `'true'` (a
+   string). Try `unique: 'true'` in section 5 below to see TS catch it.
 
-```ts
-const isOpen: boolean = true
-const isOpen: boolean = false
-// const isOpen: boolean = "yes"  ← ERROR: a string is not a boolean
-```
-
-That's the entire type. Two possible values.
-
-### 3b. Where it shows up in this sub-step
-
-When you write `unique: true` and `index: true` and `required: true`, each of those properties is typed as `boolean` in Payload's `Field` type. You're allowed to write `true` or `false`. You can't write `'true'` (a string in quotes) — that's a different type.
-
-Try it on purpose in section 5 below to see TS catch it.
-
-### 3c. Optional properties (sneak peek)
-
-You'll notice these properties don't have to be there. Most fields don't need `unique`. In Payload's type, that's expressed as `unique?: boolean` — the `?` means "this property *might* be there, *might not* be." We'll go deeper on optional properties in later sub-steps. For now: if you omit `unique`, the field is just non-unique by default.
+2. **Optional properties** — `unique` doesn't have to be there. In
+   Payload's type it's `unique?: boolean` — the `?` means "might be
+   present, might not." Omit it and the field is non-unique by default.
 
 ---
 

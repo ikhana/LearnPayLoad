@@ -39,31 +39,18 @@ Five collection-level options, inside one `admin: {}` block at the top of the co
 
 ## 3. What you'll learn — TypeScript
 
-One TS concept: **arrays typed strictly to a single element type**.
+> **TS Lesson:** [05 — Arrays](../ts-lessons/05-arrays.md)
 
-### 3a. A string array isn't the same as "any array"
+One concept: **typed arrays**. `defaultColumns` is `string[]` — every
+item must be a string. Try `['title', 42, true]` and TS rejects it.
 
-`defaultColumns: ['title', 'status', 'publishedAt', 'updatedAt']` looks innocent. In TypeScript it's typed roughly as `string[]` — an array where every item is a string.
+But `string[]` doesn't validate against your actual field names. Typo
+`'tilte'`? No squiggle — TS only knows it's a string, not whether
+that string matches a field. The admin just won't show that column.
+This is a real limit of the type system here.
 
-But you can't put numbers or booleans in there:
-
-```ts
-defaultColumns: ['title', 42, true]   // ← ERROR: 42 is not a string
-```
-
-The type said "items are strings." The compiler enforces that.
-
-### 3b. The string values aren't validated against your field names
-
-A subtle thing: `defaultColumns` is typed as `string[]`. TypeScript doesn't narrow the strings to "only field names that exist on this collection." So if you typo `'tilte'` instead of `'title'`, TS won't catch it.
-
-The admin will still work (it just won't show that "column" since no such field exists), but you'll be confused for a minute. This is one place where the safety net has limits — `string` is more lenient than `'title' | 'slug' | 'excerpt' | ...`.
-
-Payload could narrow this further with more advanced type machinery; currently it doesn't.
-
-### 3c. `timestamps: true` — back to booleans
-
-`timestamps` is the same `boolean` type from 01.3. `true` or `false`. Nothing else. Try `timestamps: 'true'` to confirm the boolean lesson held.
+`timestamps: true` is the same `boolean` from 01.3. Try
+`timestamps: 'true'` (string) to confirm it still squiggles.
 
 ---
 
@@ -154,6 +141,19 @@ timestamps: 'true', // ← string, not boolean
 ```
 
 **Red squiggle.** `boolean` doesn't accept a string. Fix it back to `timestamps: true`.
+
+### 5.6 — Typing drill: rebuild Posts from memory
+
+Close `Posts.ts`. Open a new blank file. Without looking at the original,
+type the entire collection config from memory — all 7 fields, the admin
+block, timestamps. Don't copy-paste. Don't peek.
+
+You'll forget something. That's the point — what you forget is what you
+haven't internalized yet. Check against the original after, note what
+you missed, then delete the blank file.
+
+This is the last sub-step before `generate:types`. From here on, your
+muscle memory for writing collection configs should be solid.
 
 ---
 

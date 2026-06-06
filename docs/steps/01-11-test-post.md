@@ -38,31 +38,17 @@ No new field types or admin options this sub-step. What you *will* see:
 
 ## 3. What you'll learn — TypeScript
 
-One small TS concept: **autocomplete on a generated interface**.
+> **TS Lessons:** All of [00](../ts-lessons/00-what-is-typescript.md)–[06](../ts-lessons/06-import-type.md) — this is the payoff.
 
-### 3a. Why this is the payoff moment
+The payoff moment: **autocomplete on a generated interface**.
 
-Every TS lesson from 01.1 through 01.10 has been preparing you for this. The `: CollectionConfig` annotation gave you autocomplete *when defining* the schema. The generated `Post` interface gives you autocomplete *when consuming* records. Both are the same idea — types as a contract between code-that-writes and code-that-reads.
+The `: CollectionConfig` annotation gave you autocomplete *when
+defining* the schema. The generated `Post` interface gives you
+autocomplete *when consuming* records. Same idea, two directions —
+types as a contract between code-that-writes and code-that-reads.
 
-### 3b. Try it
-
-In a scratch file (or any temporary place):
-
-```ts
-import type { Post } from '@/payload-types'
-
-function summarize(post: Post): string {
-  return // ← put your cursor here, type "post." and watch
-}
-```
-
-Type `post.` — your editor lists every field on the `Post` type. Every field name you wrote in the collection config. Every type — `string`, `'draft' | 'published'`, the Lexical tree shape for content.
-
-That's the payoff. The shape you defined is now the shape your code reads.
-
-### 3c. What this unlocks downstream
-
-When we build the SEO plugin later (step 13), it'll receive a `Post`-shaped object. Every field access in that plugin will be type-safe. The plugin author won't need to remember which fields exist — the editor will tell them.
+Type `post.` in a scratch file and your editor lists every field.
+That's every TS lesson from 01.1–01.10 paying off at once.
 
 ---
 

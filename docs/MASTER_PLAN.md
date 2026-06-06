@@ -17,6 +17,11 @@ we get there → skip and update this doc.
 > docs page for that concept. These step docs annotate the official ones —
 > they don't replace them. When the official docs change, our steps follow.
 
+> **TypeScript lessons**: the [ts-lessons/](ts-lessons/README.md) directory
+> has a standalone progressive track (lessons 00–09) that teaches TS from
+> scratch with plain non-Payload examples. Each Payload step references the
+> relevant TS lesson. New to TS? Read lessons 00–06 before starting step 01.
+
 ---
 
 ## The narrative
@@ -60,7 +65,15 @@ in that step, never abstract.
 | 01.9 | Admin polish (`useAsTitle`, `defaultColumns`, `group`) | Collection-level admin types | `[x]` | [steps/01-9-admin-polish.md](steps/01-9-admin-polish.md) |
 | 01.10 | Generate types (`pnpm generate:types`) | Reading `payload-types.ts` | `[x]` | [steps/01-10-generate-types.md](steps/01-10-generate-types.md) |
 | 01.11 | First test post + verify whole step | Type-safe consumption in practice | `[x]` | [steps/01-11-test-post.md](steps/01-11-test-post.md) |
-| 02 | Relationships — relate Posts to Categories | Generic types — `Field<T>`, `RelationshipField` | `[ ]` | _(coming)_ |
+| **02** | **Relationships — Categories, Tags, and relationship fields** | Generic types, union narrowing, `Array<T>` | `[ ]` | _(see 02.1–02.8 below)_ |
+| 02.1 | Categories collection skeleton | Muscle memory — `import type` + annotation | `[ ]` | [steps/02-1-categories-skeleton.md](steps/02-1-categories-skeleton.md) |
+| 02.2 | Categories fields (title, slug, description) | Generic types — `Array<T>`, `Box<T>`, the `< >` slot | `[ ]` | [steps/02-2-categories-fields.md](steps/02-2-categories-fields.md) |
+| 02.3 | Add `category` relationship field to Posts | `relationTo` narrowing, union preview (`number \| Category`) | `[ ]` | [steps/02-3-category-relationship.md](steps/02-3-category-relationship.md) |
+| 02.4 | Tags collection (skeleton + fields) | Speed through familiarity — no new syntax | `[ ]` | [steps/02-4-tags-collection.md](steps/02-4-tags-collection.md) |
+| 02.5 | Add `tags` relationship field to Posts (`hasMany`) | `hasMany` → array type, `(number \| Tag)[]` vs `number \| Tag[]` | `[ ]` | [steps/02-5-tags-relationship.md](steps/02-5-tags-relationship.md) |
+| 02.6 | Admin polish for Categories and Tags | Same type, different instance; `group` string matching | `[ ]` | [steps/02-6-taxonomy-admin-polish.md](steps/02-6-taxonomy-admin-polish.md) |
+| 02.7 | Generate types — see relationship shapes | Reading union types, type guards (`typeof`), narrowing | `[ ]` | [steps/02-7-generate-types-relationships.md](steps/02-7-generate-types-relationships.md) |
+| 02.8 | Test relationships end-to-end | Type narrowing in practice, `isPopulated<T>` helper | `[ ]` | [steps/02-8-test-relationships.md](steps/02-8-test-relationships.md) |
 | 03 | Globals — header, footer, site config | Literal types & `as const` | `[ ]` | _(coming)_ |
 | 04 | Uploads — Media collection, image sizes, focal point | Discriminated unions | `[ ]` | _(coming)_ |
 | 05 | Access control — who can read/create/update/delete | Function types & type predicates | `[ ]` | _(coming)_ |
@@ -81,7 +94,7 @@ Every step doc has the same 7 sections:
 
 1. **The story** — why this step exists, what real-world thing it solves
 2. **What you'll learn — Payload** — the Payload concept in plain words
-3. **What you'll learn — TypeScript** — the TS lesson, anchored to the code we touch this step
+3. **What you'll learn — TypeScript** — links to the relevant [TS lesson](ts-lessons/README.md), plus a short summary anchored to the code we touch
 4. **Builds on** — explicit links to earlier step(s) we rely on
 5. **Steps** — exact code or config changes, copy-pasteable
 6. **Verify** — checkboxes for "done"

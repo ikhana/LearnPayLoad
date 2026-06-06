@@ -34,37 +34,16 @@ configure its picker UI to include time-of-day.
 
 ## 3. What you'll learn — TypeScript
 
-One TS concept: **types nested two levels deep**.
+> **TS Lessons:** [02 — Object types](../ts-lessons/02-object-types.md) (nested objects), [04 — Optional properties](../ts-lessons/04-optional-and-null.md)
 
-### 3a. Going one level deeper
+One concept: **two-level nesting**. `admin: { date: { pickerAppearance: 'dayAndTime' } }`
+nests `date` inside `admin`. Each level has its own typed shape.
+Autocomplete works at every depth — type `admin: { date: { ` and press
+`Ctrl+Space`.
 
-You've already seen `admin: { description: '...' }` (01.4) and `admin: { position: 'sidebar' }` (01.3) — that's one level of nesting inside the field config.
-
-`admin: { date: { pickerAppearance: 'dayAndTime' } }` adds a second level. The `date` property inside `admin` is itself an object containing date-specific options.
-
-In TypeScript, this looks like:
-
-```ts
-type FieldAdmin = {
-  description?: string
-  position?: 'sidebar'
-  date?: {
-    pickerAppearance?: 'dayAndTime' | 'dayOnly' | 'monthOnly' | 'timeOnly' | 'default'
-    // ...other date options
-  }
-  // ...other admin options
-}
-```
-
-A type can nest as deep as it needs. Each nested object is its own typed shape.
-
-### 3b. Autocomplete still works at depth
-
-The autocomplete you saw in 01.4 fires at every level. Type `admin: { date: { ` and press `Ctrl+Space` — autocomplete shows you what lives inside `date`. That's the annotation propagating all the way down through the nesting.
-
-### 3c. Optional all the way down
-
-Notice the `?` on every property in the type above. Each level is optional. You can omit `date` entirely, you can include `date` but omit `pickerAppearance`. The annotation doesn't *force* you to fill in any specific structure — it only validates what you *do* include.
+Every level is optional (`?`). You can omit `date` entirely or include
+it without `pickerAppearance`. The annotation only validates what you
+*do* include.
 
 ---
 

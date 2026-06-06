@@ -34,41 +34,16 @@ this field.
 
 ## 3. What you'll learn — TypeScript
 
-One TS concept: **nested object types**.
+> **TS Lesson:** [02 — Object types & interfaces](../ts-lessons/02-object-types.md) (nested objects section)
 
-### 3a. What is a nested object type?
+One concept: **nested object types**. The `admin` property on a field is
+an object with its own typed shape inside. Type `admin: { ` and press
+`Ctrl+Space` — autocomplete shows `position`, `description`,
+`condition`, `hidden`, and more.
 
-A type can describe a value that's *itself an object containing more typed properties*. The outer type names the property; the inner type describes the shape of the object that property holds.
-
-```ts
-type Person = {
-  name: string
-  address: {              // address is itself an object
-    street: string
-    city: string
-  }
-}
-
-const alice: Person = {
-  name: 'Alice',
-  address: {
-    street: '123 Main',
-    city: 'Quetta',
-  }
-}
-```
-
-Reading the type: a `Person` has a `name` (string) and an `address` (which is itself an object with `street` and `city`).
-
-### 3b. Where you'll see it in this sub-step
-
-The `admin` property on a Payload field is one of these nested objects. Inside it you can put properties like `position`, `description`, `condition`, `hidden`, and more — each with its own type.
-
-When you type `admin: { ` and then press `Ctrl+Space`, your editor shows you the inner shape. Try it after you add the `admin` block in the steps below — autocomplete reveals what else lives in there.
-
-### 3c. Why this matters going forward
-
-Payload uses nested-object configs *everywhere*. The whole collection has an `admin` config. Each field has its own `admin`. Hooks have nested arrays of functions. Globals look similar. The lesson is the same in every later sub-step: when you see `: { ... }` after a property, the inside is its own typed shape, and autocomplete works inside it.
+Payload nests objects everywhere: collection-level `admin`, field-level
+`admin`, hooks, globals. Each level is its own typed shape, and
+autocomplete works at every depth.
 
 ---
 

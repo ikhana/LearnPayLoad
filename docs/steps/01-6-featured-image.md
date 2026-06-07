@@ -36,7 +36,7 @@ record) or picks an existing one.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lesson:** [03 — Literal types & unions](../ts-lessons/03-literal-types.md)
+> **TS Lesson:** [03.2 — Union types](../ts-lessons/03-2-union-types.md)
 
 One concept: **project-derived literal types**. `relationTo: 'media'`
 doesn't accept any string — TypeScript knows the valid collection slugs

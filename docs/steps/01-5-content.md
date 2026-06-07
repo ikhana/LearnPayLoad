@@ -36,7 +36,7 @@ configured globally in step 00).
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lesson:** [02 — Object types & interfaces](../ts-lessons/02-object-types.md)
+> **TS Lesson:** [02.1 — Object types](../ts-lessons/02-1-object-types.md)
 
 One concept: **complex types vs primitives**. Previous fields were
 `string` or `boolean` — single values. The `richText` field stores a

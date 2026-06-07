@@ -37,7 +37,7 @@ sticks differently than the first.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** [01 — Type annotations](../ts-lessons/01-type-annotations.md), [06 — `import type`](../ts-lessons/06-import-type.md)
+> **TS Lessons:** [01.2 — Type annotations](../ts-lessons/01-2-type-annotations.md), [04.2 — `import type`](../ts-lessons/04-2-import-type.md)
 >
 > You've read these before. This step is pure repetition.
 

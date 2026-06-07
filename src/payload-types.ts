@@ -207,6 +207,8 @@ export interface Post {
 export interface Category {
   id: number;
   title: string;
+  slug: string;
+  description?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -353,6 +355,8 @@ export interface PostsSelect<T extends boolean = true> {
  */
 export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
+  description?: T;
   updatedAt?: T;
   createdAt?: T;
 }

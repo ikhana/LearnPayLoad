@@ -36,7 +36,7 @@ All of this is repetition from 01.9. You've seen every option before.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** [05 — Arrays](../ts-lessons/05-arrays.md), [03 — Literal types](../ts-lessons/03-literal-types.md)
+> **TS Lessons:** [04.1 — Arrays](../ts-lessons/04-1-arrays.md), [03.1 — Literal types](../ts-lessons/03-1-literal-types.md)
 >
 > No new TS lesson. This is repetition of 01.9.
 

@@ -34,7 +34,7 @@ this field.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lesson:** [02 — Object types & interfaces](../ts-lessons/02-object-types.md) (nested objects section)
+> **TS Lesson:** [02.3 — Nested objects](../ts-lessons/02-3-nested-objects.md)
 
 One concept: **nested object types**. The `admin` property on a field is
 an object with its own typed shape inside. Type `admin: { ` and press

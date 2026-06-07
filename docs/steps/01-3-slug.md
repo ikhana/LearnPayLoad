@@ -31,7 +31,7 @@ reuse in later steps.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** [01 — Type annotations](../ts-lessons/01-type-annotations.md) (booleans), [04 — Optional properties & null](../ts-lessons/04-optional-and-null.md)
+> **TS Lessons:** [01.3 — Booleans](../ts-lessons/01-3-booleans-and-primitives.md), [02.4 — Optional & null](../ts-lessons/02-4-optional-and-null.md)
 
 Two concepts:
 

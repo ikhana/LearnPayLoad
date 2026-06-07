@@ -34,7 +34,7 @@ This is the whole pitch of Payload: define the shape, the admin appears.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lesson:** [03 — Literal types & unions](../ts-lessons/03-literal-types.md)
+> **TS Lessons:** [03.1 — Literal types](../ts-lessons/03-1-literal-types.md), [03.2 — Union types](../ts-lessons/03-2-union-types.md)
 >
 > Read that lesson first if unions are new. It uses a traffic light
 > example before we get to Payload.

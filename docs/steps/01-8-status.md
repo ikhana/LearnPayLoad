@@ -43,7 +43,7 @@ the right teaching step — it covers more of the type system.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** [03 — Literal types & unions](../ts-lessons/03-literal-types.md), [05 — Arrays](../ts-lessons/05-arrays.md)
+> **TS Lessons:** [03.3 — Unions of shapes](../ts-lessons/03-3-unions-of-shapes.md), [04.1 — Arrays](../ts-lessons/04-1-arrays.md)
 
 One concept: **unions between different shapes**. Payload's `options`
 accepts two forms:

@@ -36,7 +36,7 @@ then add features one at a time. No "I'll come back and verify it later."
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** [01 — Type annotations](../ts-lessons/01-type-annotations.md), [06 — `import type`](../ts-lessons/06-import-type.md)
+> **TS Lessons:** [01.2 — Type annotations](../ts-lessons/01-2-type-annotations.md), [04.2 — `import type`](../ts-lessons/04-2-import-type.md)
 >
 > If these concepts are new, read those lessons first — they have plain
 > non-Payload examples. Come back here when the ideas click.

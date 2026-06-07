@@ -38,7 +38,7 @@ This matters because:
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lesson:** [09 — Type predicates](../ts-lessons/09-type-predicates.md)
+> **TS Lesson:** [06.3 — Type predicates](../ts-lessons/06-3-type-predicates.md)
 >
 > **Read this lesson now.** It builds the `isPopulated<T>` helper from
 > scratch and shows how to use type predicates in `.filter()`.

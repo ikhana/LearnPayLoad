@@ -1,38 +1,105 @@
-# TypeScript Lessons
+# TypeScript Lessons — Master Plan
 
-A progressive track for learning TypeScript from scratch. Each lesson
-builds on the previous one, uses plain non-Payload examples first, and
-links to the Payload step where the concept first appears.
+A progressive track for learning TypeScript from scratch. Organized into
+**topics**, each with **sub-steps**. Each sub-step is one small lesson
+with plain non-Payload examples first, then a Payload connection.
 
-Read these front-to-back before starting the Payload steps, or use them
-as reference when a step introduces a new TS concept.
+> **Rule**: a sub-step is only marked `[x]` when you've read the lesson
+> file AND done the "Try it yourself" exercise at the bottom. No
+> skipping — the exercises build muscle memory.
+
+Status legend: `[ ]` not done · `[x]` done
 
 ---
 
-| # | Lesson | Key concept | First used in |
-|---|---|---|---|
-| [00](00-what-is-typescript.md) | What is TypeScript? | Labels, compiler, `strict` | Step 00 |
-| [01](01-type-annotations.md) | Type annotations | `: string`, `: number`, `: boolean` | Step 01.1 |
-| [02](02-object-types.md) | Object types & interfaces | `type`, `interface`, nested objects | Step 01.2 |
-| [03](03-literal-types.md) | Literal types & unions | `'draft' \| 'published'`, `\|` | Step 01.5 |
-| [04](04-optional-and-null.md) | Optional properties & null | `?`, `\| null`, `??` | Step 01.3 |
-| [05](05-arrays.md) | Arrays | `string[]`, `Array<string>` | Step 01.9 |
-| [06](06-import-type.md) | `import type` | Type-only imports, compile-time erasure | Step 01.1 |
-| [07](07-generics.md) | Generics | `Box<T>`, `Array<T>`, type parameters | Step 02.2 |
-| [08](08-narrowing.md) | Union narrowing | `typeof`, type guards | Step 02.7 |
-| [09](09-type-predicates.md) | Type predicates | `value is T`, `isPopulated<T>` | Step 02.8 |
+## Topic 01 — Foundations
+
+_What TypeScript is and how to label things. Start here._
+
+| # | Lesson | What you learn | Status | Payload step |
+|---|---|---|---|---|
+| [01.1](01-1-what-is-typescript.md) | What is TypeScript? | Labels, compiler, `strict`, `tsconfig.json` | `[ ]` | Step 00 |
+| [01.2](01-2-type-annotations.md) | Type annotations | `: string`, `: number`, `: boolean` on variables & params | `[ ]` | Step 01.1 |
+| [01.3](01-3-booleans-and-primitives.md) | Booleans & primitives | `boolean`, `true`/`false`, `'true'` ≠ `true` | `[ ]` | Step 01.3 |
+
+---
+
+## Topic 02 — Object Shapes
+
+_How to describe the shape of an object — which properties it has and
+what types they hold._
+
+| # | Lesson | What you learn | Status | Payload step |
+|---|---|---|---|---|
+| [02.1](02-1-object-types.md) | Object types & `type` aliases | `type Person = { name: string }` | `[ ]` | Step 01.2 |
+| [02.2](02-2-interfaces.md) | Interfaces | `interface` vs `type`, when to use which | `[ ]` | Step 01.10 |
+| [02.3](02-3-nested-objects.md) | Nested objects | Objects inside objects, autocomplete at depth | `[ ]` | Step 01.4 |
+| [02.4](02-4-optional-and-null.md) | Optional properties & null | `?`, `| null`, `??` operator | `[ ]` | Step 01.3 |
+
+---
+
+## Topic 03 — Restricting Values
+
+_How TypeScript can narrow a value from "any string" to "only these
+specific strings."_
+
+| # | Lesson | What you learn | Status | Payload step |
+|---|---|---|---|---|
+| [03.1](03-1-literal-types.md) | Literal types | `'red'` as a type, not just a value | `[ ]` | Step 01.2 |
+| [03.2](03-2-union-types.md) | Union types | `'draft' \| 'published'`, the `\|` operator | `[ ]` | Step 01.5 |
+| [03.3](03-3-unions-of-shapes.md) | Unions of different shapes | `string \| { label: string; value: string }` | `[ ]` | Step 01.8 |
+
+---
+
+## Topic 04 — Lists & Imports
+
+_Arrays, typed lists, and how TypeScript imports work._
+
+| # | Lesson | What you learn | Status | Payload step |
+|---|---|---|---|---|
+| [04.1](04-1-arrays.md) | Arrays | `string[]`, arrays of objects, element enforcement | `[ ]` | Step 01.9 |
+| [04.2](04-2-import-type.md) | `import type` | Type-only imports, compile-time erasure, `import` vs `import type` | `[ ]` | Step 01.1 |
+
+---
+
+## Topic 05 — Generics
+
+_Types that take a parameter — the most important TS concept in this
+project._
+
+| # | Lesson | What you learn | Status | Payload step |
+|---|---|---|---|---|
+| [05.1](05-1-what-are-generics.md) | What are generics? | `Box<T>`, type parameters, the `< >` slot | `[ ]` | Step 02.2 |
+| [05.2](05-2-array-is-a-generic.md) | `Array<T>` — a generic you know | `Array<string>` ≡ `string[]`, multiple type params | `[ ]` | Step 02.2 |
+| [05.3](05-3-generics-in-payload.md) | Generics in Payload | `RelationshipField`, `(number \| Category)[]` | `[ ]` | Step 02.5 |
+
+---
+
+## Topic 06 — Narrowing & Type Guards
+
+_How to tell TypeScript which branch of a union you're in._
+
+| # | Lesson | What you learn | Status | Payload step |
+|---|---|---|---|---|
+| [06.1](06-1-the-narrowing-problem.md) | The narrowing problem | Why `value.length` fails on `string \| number` | `[ ]` | Step 02.7 |
+| [06.2](06-2-typeof-guards.md) | `typeof` type guards | `typeof x === 'string'`, narrowing inside `if` blocks | `[ ]` | Step 02.7 |
+| [06.3](06-3-type-predicates.md) | Type predicates | `value is T`, custom guard functions, `isPopulated<T>` | `[ ]` | Step 02.8 |
 
 ---
 
 ## How to use these lessons
 
-**If you're new to TypeScript:** Read lessons 00–06 before starting
-Step 01. They'll take about an hour. You'll understand every annotation
-and type error you encounter in the Payload steps.
+**If you're new to TypeScript:** Work through Topics 01–04 before
+starting Payload Step 01. That's ~1 hour. You'll understand every
+annotation and type error in the Payload steps.
 
-**If you know some TypeScript:** Skim the lessons. Jump to whichever
-one covers a concept you're fuzzy on. Each lesson is self-contained.
+**If you know some TypeScript:** Skim, jump to the topic that's fuzzy.
+Each sub-step is self-contained.
 
 **During the Payload steps:** Each step doc links to the relevant TS
-lesson. If the TS concept in a step confuses you, follow the link and
-read the standalone lesson with plain examples first.
+lesson. If confused, follow the link — read the plain examples first,
+then come back to the Payload code.
+
+**Progress:** Mark each sub-step `[x]` only after you've read it AND
+done the "Try it yourself" section. When all sub-steps in a topic are
+`[x]`, that topic is done.

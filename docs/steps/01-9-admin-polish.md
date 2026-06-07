@@ -39,7 +39,7 @@ Five collection-level options, inside one `admin: {}` block at the top of the co
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lesson:** [05 — Arrays](../ts-lessons/05-arrays.md)
+> **TS Lesson:** [04.1 — Arrays](../ts-lessons/04-1-arrays.md)
 
 One concept: **typed arrays**. `defaultColumns` is `string[]` — every
 item must be a string. Try `['title', 42, true]` and TS rejects it.

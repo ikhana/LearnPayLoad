@@ -66,7 +66,7 @@ in that step, never abstract.
 | 01.10 | Generate types (`pnpm generate:types`) | Reading `payload-types.ts` | `[x]` | [steps/01-10-generate-types.md](steps/01-10-generate-types.md) |
 | 01.11 | First test post + verify whole step | Type-safe consumption in practice | `[x]` | [steps/01-11-test-post.md](steps/01-11-test-post.md) |
 | **02** | **Relationships — Categories, Tags, and relationship fields** | Generic types, union narrowing, `Array<T>` | `[ ]` | _(see 02.1–02.8 below)_ |
-| 02.1 | Categories collection skeleton | Muscle memory — `import type` + annotation | `[ ]` | [steps/02-1-categories-skeleton.md](steps/02-1-categories-skeleton.md) |
+| 02.1 | Categories collection skeleton | Muscle memory — `import type` + annotation | `[x]` | [steps/02-1-categories-skeleton.md](steps/02-1-categories-skeleton.md) |
 | 02.2 | Categories fields (title, slug, description) | Generic types — `Array<T>`, `Box<T>`, the `< >` slot | `[ ]` | [steps/02-2-categories-fields.md](steps/02-2-categories-fields.md) |
 | 02.3 | Add `category` relationship field to Posts | `relationTo` narrowing, union preview (`number \| Category`) | `[ ]` | [steps/02-3-category-relationship.md](steps/02-3-category-relationship.md) |
 | 02.4 | Tags collection (skeleton + fields) | Speed through familiarity — no new syntax | `[ ]` | [steps/02-4-tags-collection.md](steps/02-4-tags-collection.md) |

@@ -34,7 +34,7 @@ Same concept as 01.10:
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lesson:** [06.2 — `typeof` type guards](../ts-lessons/06-2-typeof-guards.md)
+> **TS Lesson:** [06.2 — `typeof` type guards](../ts-lessons/06-narrowing/06-2-typeof-guards.md)
 >
 > **Read this lesson now.** It explains `typeof` checks and narrowing
 > with plain examples before we apply them to Payload relationships.

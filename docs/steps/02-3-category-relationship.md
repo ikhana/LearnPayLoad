@@ -52,7 +52,7 @@ Key options we're using:
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** [03.2 — Union types](../ts-lessons/03-2-union-types.md), [06.1 — The narrowing problem](../ts-lessons/06-1-the-narrowing-problem.md) (preview)
+> **TS Lessons:** [03.2 — Union types](../ts-lessons/03-restricting-values/03-2-union-types.md), [06.1 — The narrowing problem](../ts-lessons/06-narrowing/06-1-the-narrowing-problem.md) (preview)
 
 One concept: **`relationTo` narrowing and the union it generates**.
 

@@ -49,7 +49,7 @@ loop is: **edit collection → generate types → use the types**.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lesson:** [02.2 — Interfaces](../ts-lessons/02-2-interfaces.md)
+> **TS Lesson:** [02.2 — Interfaces](../ts-lessons/02-object-shapes/02-2-interfaces.md)
 
 One concept: **the edit → generate → use loop**.
 

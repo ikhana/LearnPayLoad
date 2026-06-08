@@ -49,7 +49,7 @@ The difference:
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** [04.1 — Arrays](../ts-lessons/04-1-arrays.md), [05.3 — Generics in Payload](../ts-lessons/05-3-generics-in-payload.md)
+> **TS Lessons:** [04.1 — Arrays](../ts-lessons/04-lists-and-imports/04-1-arrays.md), [05.3 — Generics in Payload](../ts-lessons/05-generics/05-3-generics-in-payload.md)
 
 One concept: **`hasMany` turns a single value into an array**.
 

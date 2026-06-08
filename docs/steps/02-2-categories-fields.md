@@ -37,7 +37,7 @@ you don't need to look it up anymore.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lesson:** [05.1 — What are generics?](../ts-lessons/05-1-what-are-generics.md)
+> **TS Lesson:** [05.1 — What are generics?](../ts-lessons/05-generics/05-1-what-are-generics.md)
 >
 > **Read this lesson first.** It explains generics with a Box example
 > and connects `Array<string>` to `string[]`. Come back here after.

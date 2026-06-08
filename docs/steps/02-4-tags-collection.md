@@ -40,7 +40,7 @@ Tags itself.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** No new lesson. Review [01.2](../ts-lessons/01-2-type-annotations.md) and [04.2](../ts-lessons/04-2-import-type.md) if needed.
+> **TS Lessons:** No new lesson. Review [01.2](../ts-lessons/01-foundations/01-2-type-annotations.md) and [04.2](../ts-lessons/04-lists-and-imports/04-2-import-type.md) if needed.
 
 No new TS concept. This is a **speed round**. You're writing a
 collection skeleton for the third time. If you can type

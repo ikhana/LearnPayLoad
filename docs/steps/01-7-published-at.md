@@ -34,7 +34,7 @@ configure its picker UI to include time-of-day.
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** [02.3 — Nested objects](../ts-lessons/02-3-nested-objects.md), [02.4 — Optional & null](../ts-lessons/02-4-optional-and-null.md)
+> **TS Lessons:** [02.3 — Nested objects](../ts-lessons/02-object-shapes/02-3-nested-objects.md), [02.4 — Optional & null](../ts-lessons/02-object-shapes/02-4-optional-and-null.md)
 
 One concept: **two-level nesting**. `admin: { date: { pickerAppearance: 'dayAndTime' } }`
 nests `date` inside `admin`. Each level has its own typed shape.

@@ -38,7 +38,7 @@ No new field types or admin options this sub-step. What you *will* see:
 
 ## 3. What you'll learn — TypeScript
 
-> **TS Lessons:** All of Topics [01](../ts-lessons/01-1-what-is-typescript.md)–[04](../ts-lessons/04-2-import-type.md) — this is the payoff.
+> **TS Lessons:** All of Topics [01](../ts-lessons/01-foundations/01-1-what-is-typescript.md)–[04](../ts-lessons/04-lists-and-imports/04-2-import-type.md) — this is the payoff.
 
 The payoff moment: **autocomplete on a generated interface**.
 

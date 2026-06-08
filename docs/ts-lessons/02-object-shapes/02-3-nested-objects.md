@@ -77,9 +77,15 @@ Typo `pickerApearance`? Red squiggle — at level 2.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/02-3-nested-objects.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 02.3 — Nested objects
+
 type School = {
   name: string
   address: {
@@ -99,10 +105,15 @@ const school: School = {
   principal: { name: 'Ali', email: 'ali@school.pk' },
 }
 
-// 2. Typo in nested property
+// 2. Introduce a typo at each nesting level — see squiggles
 const bad: School = {
   name: 'Test',
-  address: { citty: 'Quetta', country: 'PK' },  // ← squiggle on 'citty'
-  principal: { name: 'X', email: 'x@x.com' },
+  address: { citty: 'Quetta', country: 'PK' },
+  principal: { name: 'X', emial: 'x@x.com' },
 }
+
+// 3. Fix both nested typos
 ```
+
+Save. See squiggles at both nesting levels. Fix them. When the file is
+clean, this lesson is done.

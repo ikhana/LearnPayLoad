@@ -69,20 +69,34 @@ collections: [Users, Media, Posts]                     // CollectionConfig[]
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/04-1-arrays.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
-const colors: string[] = ['red', 'green', 'blue']
-colors.push(42)  // ← squiggle
+// Exercise 04.1 — Arrays
 
+// 1. Typed array — push wrong type
+const colors: string[] = ['red', 'green', 'blue']
+colors.push(42)  // ← squiggle — fix it
+
+// 2. Array of objects — missing property
 type Todo = { task: string; done: boolean }
 const todos: Todo[] = [
   { task: 'Learn TS', done: true },
   { task: 'Learn Payload', done: false },
 ]
-todos.push({ task: 'Ship it' })  // ← squiggle: missing 'done'
+todos.push({ task: 'Ship it' })  // ← squiggle — fix it
 
-// Parentheses test
-const x: (string | number)[] = ['a', 1]    // mixed array ✓
-const y: string | number[] = 'hello'        // single string ✓ (or number[])
+// 3. Parentheses matter — explain the difference:
+const x: (string | number)[] = ['a', 1]
+const y: string | number[] = 'hello'
+
+// 4. Write your own: an array of { name: string; score: number }
+//    Push a valid item and an invalid item.
 ```
+
+Save. See two squiggles. Fix them. When the file is clean, this
+lesson is done.

@@ -55,20 +55,31 @@ shape." Misspell a property → red squiggle.
 
 ---
 
-## Try it yourself
+## Exercise
 
-Type these lines and watch for squiggles:
+> **Create file:** `exercises/01-2-annotations.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 01.2 — Type annotations
+
+// 1. Annotate these variables — which squiggle?
 let city: string = 'Quetta'
 let population: number = '1 million'   // ← squiggle
 let isCapital: boolean = 'false'       // ← squiggle
 
+// 2. Fix both squiggles above
+
+// 3. Annotate a function's params and return type
 function double(x: number): number {
   return x * 2
 }
 
-double('ten')  // ← squiggle
+double('ten')  // ← squiggle — fix it
+
+// 4. Write your own: a function that takes a string and returns its length
 ```
 
-Fix each one. The fixes are obvious — that's the point.
+Save. See three squiggles. Fix each one. When the file has zero
+squiggles, this lesson is done.

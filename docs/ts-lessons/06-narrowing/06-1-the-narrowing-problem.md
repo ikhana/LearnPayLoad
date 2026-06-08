@@ -60,21 +60,37 @@ which branch of the union you're in. Lesson 06.2 covers this.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/06-1-narrowing-problem.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 06.1 — The narrowing problem
+
 // 1. Try accessing string methods on a union
 function shout(value: string | number): string {
-  return value.toUpperCase()   // ← squiggle
+  return value.toUpperCase()   // ← squiggle — DON'T fix yet
 }
 
 // 2. Try accessing object properties on a union
 type User = { id: number; name: string }
 
 function getName(ref: number | User): string {
-  return ref.name   // ← squiggle
+  return ref.name   // ← squiggle — DON'T fix yet
 }
 
-// Both squiggle for the same reason: TypeScript doesn't know
-// which type it is yet. Next lesson teaches the fix.
+// 3. Explain in a comment: why does each one squiggle?
+
+// 4. Try one more: category from Payload
+type Category = { id: number; title: string }
+function getCategoryTitle(cat: number | Category): string {
+  return cat.title   // ← squiggle — same reason
+}
+
+// Leave the squiggles. Next lesson (06.2) teaches the fix.
 ```
+
+Save. See three squiggles. **Don't fix them** — understand why they
+happen. This lesson is done when you can explain the reason.

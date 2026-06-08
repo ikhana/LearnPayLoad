@@ -1,6 +1,6 @@
 # TS 04.2 — `import type`
 
-> **Topic 04: Lists & Imports** · Prev: [04.1](04-1-arrays.md) · Next: [05.1](05-1-what-are-generics.md)
+> **Topic 04: Lists & Imports** · Prev: [04.1](04-1-arrays.md) · Next: [05.1](../05-generics/05-1-what-are-generics.md)
 
 ---
 
@@ -66,15 +66,30 @@ buildConfig({})  // ← ERROR: can't use a type as a value
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/04-2-import-type.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 04.2 — import type
+
 // 1. Import a type
 import type { CollectionConfig } from 'payload'
 
 // 2. Use it as an annotation — works
 const x: CollectionConfig = { slug: 'test', fields: [] }
 
-// 3. Try using it as a value — fails
-console.log(CollectionConfig)  // ← squiggle: it's a type, not a value
+// 3. Try using it as a value — see the squiggle
+console.log(CollectionConfig)
+
+// 4. Fix it: you can't console.log a type. Remove the line.
+
+// 5. Try the reverse mistake:
+//    import type { buildConfig } from 'payload'
+//    buildConfig({})   // ← can't use a type-import as a value
 ```
+
+Save. See the squiggle. Understand why types aren't values. When the
+file is clean, this lesson is done.

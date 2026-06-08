@@ -78,10 +78,16 @@ relationship field.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/06-2-typeof-guards.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
-// 1. Fix the shout function from 06.1
+// Exercise 06.2 — typeof type guards
+
+// 1. Fix the shout function from 06.1 using typeof
 function shout(value: string | number): string {
   if (typeof value === 'string') {
     return value.toUpperCase()
@@ -96,14 +102,24 @@ function getName(ref: number | User): string {
   if (typeof ref === 'number') {
     return `User #${ref}`
   }
-  return ref.name    // TS knows: it's User
+  return ref.name
 }
 
-// 3. Null check
+// 3. Null check pattern
 function greet(name: string | null): string {
   if (name === null) {
     return 'Hello, stranger!'
   }
   return `Hello, ${name.toUpperCase()}!`
 }
+
+// 4. Fix the getCategoryTitle from 06.1 using typeof
+type Category = { id: number; title: string }
+function getCategoryTitle(cat: number | Category): string {
+  // Add your typeof guard here
+  return cat.title
+}
 ```
+
+Save. Verify no squiggles on 1-3. Add the guard to fix 4. When the
+file is clean, this lesson is done.

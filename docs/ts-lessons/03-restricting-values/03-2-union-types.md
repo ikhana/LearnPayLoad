@@ -71,9 +71,15 @@ Payload reads your option values and builds the union automatically.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/03-2-unions.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 03.2 — Union types
+
 // 1. Define a Season union
 type Season = 'spring' | 'summer' | 'fall' | 'winter'
 
@@ -82,7 +88,7 @@ function describe(s: Season): string {
 }
 
 describe('summer')   // fine
-describe('monsoon')  // ← squiggle
+describe('monsoon')  // ← squiggle — fix it
 
 // 2. Mixed-type union
 type Result = string | number | null
@@ -90,5 +96,11 @@ type Result = string | number | null
 let r: Result = 'success'
 r = 42
 r = null
-r = true   // ← squiggle
+r = true   // ← squiggle — fix it
+
+// 3. Define your own: a Direction union with 4 values
+//    Write a function that takes it, try an invalid value
 ```
+
+Save. See two squiggles. Fix them. When the file is clean, this
+lesson is done.

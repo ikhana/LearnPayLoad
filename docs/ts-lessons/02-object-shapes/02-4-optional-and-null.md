@@ -1,6 +1,6 @@
 # TS 02.4 — Optional properties & null
 
-> **Topic 02: Object Shapes** · Prev: [02.3](02-3-nested-objects.md) · Next: [03.1](03-1-literal-types.md)
+> **Topic 02: Object Shapes** · Prev: [02.3](02-3-nested-objects.md) · Next: [03.1](../03-restricting-values/03-1-literal-types.md)
 
 ---
 
@@ -81,22 +81,36 @@ title: string   // no ?, no | null — guaranteed to be there
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/02-4-optional-null.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 02.4 — Optional properties & null
+
 type Profile = {
   username: string
   bio?: string | null
   age?: number
 }
 
-const p1: Profile = { username: 'alice' }                    // fine
-const p2: Profile = { username: 'bob', bio: null }           // fine
-const p3: Profile = { username: 'carol', bio: 'Developer' }  // fine
+// 1. All three should be valid — no squiggles
+const p1: Profile = { username: 'alice' }
+const p2: Profile = { username: 'bob', bio: null }
+const p3: Profile = { username: 'carol', bio: 'Developer' }
 
-// Safe access
+// 2. Safe access with ??
 const bioText = p1.bio ?? 'No bio yet'
 
-// Unsafe access
-const len = p1.bio.length   // ← squiggle: might be null/undefined
+// 3. Unsafe access — see the squiggle
+const len = p1.bio.length
+
+// 4. Fix it using ?? or an if-check
+
+// 5. Try removing the ? from bio — what changes?
 ```
+
+Save. See the squiggle on unsafe access. Fix it. When the file is
+clean, this lesson is done.

@@ -51,15 +51,34 @@ of the allowed literals.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/03-1-literals.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 03.1 — Literal types
+
+// 1. String literal — only one value allowed
 let direction: 'north' = 'north'
 direction = 'south'   // ← squiggle: only 'north' allowed
 
+// 2. Number literal
 let count: 42 = 42
 count = 43            // ← squiggle: only 42 allowed
 
-// Literal types alone aren't very useful — but combined with
-// unions (next lesson), they're powerful.
+// 3. Boolean literal
+let yes: true = true
+yes = false           // ← squiggle: only true allowed
+
+// 4. See the squiggles? Now fix each one by changing the value
+//    (not the type) to match.
+
+// 5. Try Payload's field type as a literal:
+let fieldType: 'text' = 'text'
+fieldType = 'tex'     // ← squiggle
 ```
+
+Save. See the squiggles. Fix them. This lesson is done when the file
+is clean.

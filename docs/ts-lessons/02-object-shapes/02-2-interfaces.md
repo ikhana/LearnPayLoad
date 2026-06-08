@@ -70,9 +70,15 @@ with its type. `export` means it can be imported from other files.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/02-2-interfaces.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 02.2 — Interfaces
+
 // 1. Write the same shape both ways
 type DogType = { name: string; breed: string }
 interface DogInterface { name: string; breed: string }
@@ -82,6 +88,14 @@ const dog1: DogType = { name: 'Rex', breed: 'Lab' }
 const dog2: DogInterface = { name: 'Max', breed: 'Poodle' }
 
 // 3. Try type for a non-object (interface can't do this)
-type ID = string | number        // works
-// interface ID = string | number  // ← syntax error
+type ID = string | number
+
+// 4. Uncomment and see the error:
+// interface ID2 = string | number
+
+// 5. Write an interface for a Payload-like generated type:
+//    interface Post { id: number; title: string; status: 'draft' | 'published' }
 ```
+
+Save. Verify no squiggles on the valid code, and that the commented
+line would error. This lesson is done when the file exists and is clean.

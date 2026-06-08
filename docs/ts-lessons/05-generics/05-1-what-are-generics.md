@@ -63,9 +63,15 @@ single uppercase letters (`T`, `U`, `K`, `V`) are the tradition.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/05-1-generics-intro.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 05.1 — What are generics?
+
 // 1. Define a Wrapper generic
 type Wrapper<T> = {
   value: T
@@ -75,10 +81,17 @@ type Wrapper<T> = {
 const w1: Wrapper<string> = { value: 'hello', timestamp: Date.now() }
 const w2: Wrapper<boolean> = { value: true, timestamp: Date.now() }
 const w3: Wrapper<boolean> = { value: 'yes', timestamp: Date.now() }
-// ← squiggle on w3: 'yes' is not boolean
+// ← squiggle on w3 — fix it
 
 // 2. What does Box<string[]> mean?
 type Box<T> = { contents: T }
 const b: Box<string[]> = { contents: ['a', 'b', 'c'] }
-// T = string[] → contents is an array of strings
+
+// 3. Try Box<number> with a string contents — see the squiggle
+const broken: Box<number> = { contents: 'thirty' }
+
+// 4. Define your own generic: Response<T> with { data: T; ok: boolean }
 ```
+
+Save. See squiggles on w3 and broken. Fix them. When the file is
+clean, this lesson is done.

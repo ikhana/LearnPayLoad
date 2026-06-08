@@ -52,13 +52,32 @@ Every TypeScript project has this settings file at the root:
 
 ---
 
-## Try it yourself
+## Exercise
 
-1. Open any `.ts` file in your editor
-2. Type: `let x: number = 'hello'`
-3. See the red squiggle
-4. Change it to: `let x: number = 42`
-5. Squiggle gone
+> **Create file:** `exercises/01-1-first-squiggle.ts`
 
-That interaction — write, see the squiggle, fix it — is the TypeScript
-loop. You'll do it thousands of times.
+Type this into the file (don't copy-paste):
+
+```ts
+// Exercise 01.1 — First squiggle
+
+// 1. This should squiggle — why?
+let x: number = 'hello'
+
+// 2. Fix it so the squiggle goes away
+
+
+// 3. Try another: boolean vs string
+let active: boolean = 'true'
+
+// 4. Fix it
+
+
+// 5. One more: assign a number to a string variable
+let name: string = 42
+
+// 6. Fix it
+```
+
+Save. See three squiggles. Fix each one. When the file has zero
+squiggles, this lesson is done.

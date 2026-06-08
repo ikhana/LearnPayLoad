@@ -1,6 +1,6 @@
 # TS 05.3 — Generics in Payload
 
-> **Topic 05: Generics** · Prev: [05.2](05-2-array-is-a-generic.md) · Next: [06.1](06-1-the-narrowing-problem.md)
+> **Topic 05: Generics** · Prev: [05.2](05-2-array-is-a-generic.md) · Next: [06.1](../06-narrowing/06-1-the-narrowing-problem.md)
 
 ---
 
@@ -73,10 +73,20 @@ Understanding `<T>` unlocks reading all of these.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/05-3-payload-generics.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
-// Read these generated types and answer:
+// Exercise 05.3 — Generics in Payload
+
+// Read these generated types and answer the questions:
+
+type Category = { id: number; title: string }
+type Tag = { id: number; title: string }
+type Media = { id: number; url: string }
 
 interface Post {
   id: number
@@ -86,7 +96,14 @@ interface Post {
   featuredImage?: number | Media     // Q3: What is this at depth 2?
 }
 
-// A1: category is a number (the ID)
-// A2: tags is an array of numbers (the IDs), or null
-// A3: featuredImage is a Media object (populated)
+// Write your answers as comments:
+// A1:
+// A2:
+// A3:
+
+// Q4: Rewrite (number | Tag)[] using Array<> syntax
+// Q5: Why is it number | Category instead of just Category?
 ```
+
+Save. Answer all questions in comments. This lesson is done when you
+can explain depth behavior in your own words.

@@ -80,9 +80,15 @@ TypeScript is strict both ways — nothing missing, nothing extra.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/02-1-object-types.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 02.1 — Object types & type aliases
+
 // 1. Define a Book type
 type Book = {
   title: string
@@ -93,11 +99,16 @@ type Book = {
 // 2. Create a valid book
 const book1: Book = { title: 'TS Guide', pages: 200, author: 'Alice' }
 
-// 3. Try missing a property
+// 3. Try missing a property — see the squiggle
 const book2: Book = { title: 'JS Guide', pages: 150 }
-// ← squiggle: 'author' is missing
 
-// 4. Try adding an extra property
+// 4. Try adding an extra property — see the squiggle
 const book3: Book = { title: 'Bad', pages: 100, author: 'Bob', color: 'red' }
-// ← squiggle: 'color' doesn't exist on Book
+
+// 5. Fix both squiggles above
+
+// 6. Define your own type: a Movie with title, year, director
 ```
+
+Save. See two squiggles (missing + extra). Fix them. When the file is
+clean, this lesson is done.

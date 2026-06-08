@@ -1,6 +1,6 @@
 # TS 01.3 — Booleans & primitives
 
-> **Topic 01: Foundations** · Prev: [01.2](01-2-type-annotations.md) · Next: [02.1](02-1-object-types.md)
+> **Topic 01: Foundations** · Prev: [01.2](01-2-type-annotations.md) · Next: [02.1](../02-object-shapes/02-1-object-types.md)
 
 ---
 
@@ -57,24 +57,33 @@ Write `unique: 'true'` (string) and TypeScript catches it immediately.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/01-3-booleans.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
-// 1. Which of these are valid?
+// Exercise 01.3 — Booleans & primitives
+
+// 1. Which of these are valid? Predict, then check.
 let a: boolean = true          // ?
 let b: boolean = false         // ?
 let c: boolean = 'true'        // ?
 let d: boolean = 0             // ?
 let e: boolean = null          // ?
 
-// Answers: a ✓, b ✓, c ✗, d ✗, e ✗
+// 2. Fix every squiggle above
 
-// 2. Payload test
+// 3. Payload test — spot the bug
 const field = {
   name: 'featured',
-  type: 'checkbox',    // Payload's boolean field
-  required: 'true',    // ← squiggle — should be: true (no quotes)
+  type: 'checkbox',
+  required: 'true',    // ← squiggle — fix it
 }
+
+// 4. Write one of each primitive type:
+//    string, number, boolean, null, undefined
 ```
 
-Type each one. See the squiggles. Fix them.
+Save. Fix every squiggle. When the file is clean, this lesson is done.

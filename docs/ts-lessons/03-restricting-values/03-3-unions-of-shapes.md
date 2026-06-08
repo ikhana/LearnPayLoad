@@ -1,6 +1,6 @@
 # TS 03.3 — Unions of different shapes
 
-> **Topic 03: Restricting Values** · Prev: [03.2](03-2-union-types.md) · Next: [04.1](04-1-arrays.md)
+> **Topic 03: Restricting Values** · Prev: [03.2](03-2-union-types.md) · Next: [04.1](../04-lists-and-imports/04-1-arrays.md)
 
 ---
 
@@ -76,16 +76,32 @@ The union type tells your editor which forms are valid.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/03-3-shape-unions.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 03.3 — Unions of different shapes
+
 type Input = string | { raw: string; sanitized: string }
 
-// Both are valid:
+// 1. Both should be valid — no squiggles
 const a: Input = 'hello'
 const b: Input = { raw: '<b>hi</b>', sanitized: 'hi' }
 
-// Invalid shapes:
-const c: Input = 42              // ← squiggle: number ≠ string | object
-const d: Input = { raw: 'hi' }   // ← squiggle: missing 'sanitized'
+// 2. Invalid shapes — see squiggles
+const c: Input = 42
+const d: Input = { raw: 'hi' }
+
+// 3. Fix both squiggles
+
+// 4. Define your own: a Payload-like Option type
+//    type Option = string | { label: string; value: string }
+//    Create one valid string option, one valid object option,
+//    and one invalid option.
 ```
+
+Save. See two squiggles. Fix them. When the file is clean, this
+lesson is done.

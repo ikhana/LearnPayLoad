@@ -18,9 +18,9 @@ _What TypeScript is and how to label things. Start here._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [01.1](01-1-what-is-typescript.md) | What is TypeScript? | Labels, compiler, `strict`, `tsconfig.json` | `[ ]` | Step 00 |
-| [01.2](01-2-type-annotations.md) | Type annotations | `: string`, `: number`, `: boolean` on variables & params | `[ ]` | Step 01.1 |
-| [01.3](01-3-booleans-and-primitives.md) | Booleans & primitives | `boolean`, `true`/`false`, `'true'` ≠ `true` | `[ ]` | Step 01.3 |
+| [01.1](01-foundations/01-1-what-is-typescript.md) | What is TypeScript? | Labels, compiler, `strict`, `tsconfig.json` | `[ ]` | Step 00 |
+| [01.2](01-foundations/01-2-type-annotations.md) | Type annotations | `: string`, `: number`, `: boolean` on variables & params | `[ ]` | Step 01.1 |
+| [01.3](01-foundations/01-3-booleans-and-primitives.md) | Booleans & primitives | `boolean`, `true`/`false`, `'true'` ≠ `true` | `[ ]` | Step 01.3 |
 
 ---
 
@@ -31,10 +31,10 @@ what types they hold._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [02.1](02-1-object-types.md) | Object types & `type` aliases | `type Person = { name: string }` | `[ ]` | Step 01.2 |
-| [02.2](02-2-interfaces.md) | Interfaces | `interface` vs `type`, when to use which | `[ ]` | Step 01.10 |
-| [02.3](02-3-nested-objects.md) | Nested objects | Objects inside objects, autocomplete at depth | `[ ]` | Step 01.4 |
-| [02.4](02-4-optional-and-null.md) | Optional properties & null | `?`, `| null`, `??` operator | `[ ]` | Step 01.3 |
+| [02.1](02-object-shapes/02-1-object-types.md) | Object types & `type` aliases | `type Person = { name: string }` | `[ ]` | Step 01.2 |
+| [02.2](02-object-shapes/02-2-interfaces.md) | Interfaces | `interface` vs `type`, when to use which | `[ ]` | Step 01.10 |
+| [02.3](02-object-shapes/02-3-nested-objects.md) | Nested objects | Objects inside objects, autocomplete at depth | `[ ]` | Step 01.4 |
+| [02.4](02-object-shapes/02-4-optional-and-null.md) | Optional properties & null | `?`, `| null`, `??` operator | `[ ]` | Step 01.3 |
 
 ---
 
@@ -45,9 +45,9 @@ specific strings."_
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [03.1](03-1-literal-types.md) | Literal types | `'red'` as a type, not just a value | `[ ]` | Step 01.2 |
-| [03.2](03-2-union-types.md) | Union types | `'draft' \| 'published'`, the `\|` operator | `[ ]` | Step 01.5 |
-| [03.3](03-3-unions-of-shapes.md) | Unions of different shapes | `string \| { label: string; value: string }` | `[ ]` | Step 01.8 |
+| [03.1](03-restricting-values/03-1-literal-types.md) | Literal types | `'red'` as a type, not just a value | `[ ]` | Step 01.2 |
+| [03.2](03-restricting-values/03-2-union-types.md) | Union types | `'draft' \| 'published'`, the `\|` operator | `[ ]` | Step 01.5 |
+| [03.3](03-restricting-values/03-3-unions-of-shapes.md) | Unions of different shapes | `string \| { label: string; value: string }` | `[ ]` | Step 01.8 |
 
 ---
 
@@ -57,8 +57,8 @@ _Arrays, typed lists, and how TypeScript imports work._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [04.1](04-1-arrays.md) | Arrays | `string[]`, arrays of objects, element enforcement | `[ ]` | Step 01.9 |
-| [04.2](04-2-import-type.md) | `import type` | Type-only imports, compile-time erasure, `import` vs `import type` | `[ ]` | Step 01.1 |
+| [04.1](04-lists-and-imports/04-1-arrays.md) | Arrays | `string[]`, arrays of objects, element enforcement | `[ ]` | Step 01.9 |
+| [04.2](04-lists-and-imports/04-2-import-type.md) | `import type` | Type-only imports, compile-time erasure, `import` vs `import type` | `[ ]` | Step 01.1 |
 
 ---
 
@@ -69,9 +69,9 @@ project._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [05.1](05-1-what-are-generics.md) | What are generics? | `Box<T>`, type parameters, the `< >` slot | `[ ]` | Step 02.2 |
-| [05.2](05-2-array-is-a-generic.md) | `Array<T>` — a generic you know | `Array<string>` ≡ `string[]`, multiple type params | `[ ]` | Step 02.2 |
-| [05.3](05-3-generics-in-payload.md) | Generics in Payload | `RelationshipField`, `(number \| Category)[]` | `[ ]` | Step 02.5 |
+| [05.1](05-generics/05-1-what-are-generics.md) | What are generics? | `Box<T>`, type parameters, the `< >` slot | `[ ]` | Step 02.2 |
+| [05.2](05-generics/05-2-array-is-a-generic.md) | `Array<T>` — a generic you know | `Array<string>` ≡ `string[]`, multiple type params | `[ ]` | Step 02.2 |
+| [05.3](05-generics/05-3-generics-in-payload.md) | Generics in Payload | `RelationshipField`, `(number \| Category)[]` | `[ ]` | Step 02.5 |
 
 ---
 
@@ -81,9 +81,9 @@ _How to tell TypeScript which branch of a union you're in._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [06.1](06-1-the-narrowing-problem.md) | The narrowing problem | Why `value.length` fails on `string \| number` | `[ ]` | Step 02.7 |
-| [06.2](06-2-typeof-guards.md) | `typeof` type guards | `typeof x === 'string'`, narrowing inside `if` blocks | `[ ]` | Step 02.7 |
-| [06.3](06-3-type-predicates.md) | Type predicates | `value is T`, custom guard functions, `isPopulated<T>` | `[ ]` | Step 02.8 |
+| [06.1](06-narrowing/06-1-the-narrowing-problem.md) | The narrowing problem | Why `value.length` fails on `string \| number` | `[ ]` | Step 02.7 |
+| [06.2](06-narrowing/06-2-typeof-guards.md) | `typeof` type guards | `typeof x === 'string'`, narrowing inside `if` blocks | `[ ]` | Step 02.7 |
+| [06.3](06-narrowing/06-3-type-predicates.md) | Type predicates | `value is T`, custom guard functions, `isPopulated<T>` | `[ ]` | Step 02.8 |
 
 ---
 

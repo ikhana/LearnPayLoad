@@ -63,20 +63,25 @@ when you see it — it always means "fill in the blank."
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/05-2-array-generic.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 05.2 — Array<T> — a generic you already know
+
 // 1. Confirm they're the same
 const x: Array<number> = [1, 2, 3]
 const y: number[] = [1, 2, 3]
-// Both work, both are the same type
 
-// 2. Try a Pair
+// 2. Try a Pair — two type parameters
 type Pair<A, B> = { first: A; second: B }
 
 const p1: Pair<string, boolean> = { first: 'done', second: true }
 const p2: Pair<string, boolean> = { first: 'done', second: 42 }
-// ← squiggle on p2: number ≠ boolean
+// ← squiggle on p2 — fix it
 
 // 3. Array of a custom type
 type Tag = { id: number; title: string }
@@ -84,4 +89,9 @@ const tags: Array<Tag> = [
   { id: 1, title: 'react' },
   { id: 2, title: 'typescript' },
 ]
+
+// 4. Define a Triple<A, B, C> with first, second, third
 ```
+
+Save. See the squiggle on p2. Fix it. When the file is clean, this
+lesson is done.

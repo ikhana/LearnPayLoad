@@ -103,9 +103,15 @@ After `.filter()`, TypeScript knows every item is a `Tag`.
 
 ---
 
-## Try it yourself
+## Exercise
+
+> **Create file:** `exercises/06-3-type-predicates.ts`
+
+Type this into the file (don't copy-paste):
 
 ```ts
+// Exercise 06.3 — Type predicates
+
 // 1. Simple type predicate
 function isNumber(value: unknown): value is number {
   return typeof value === 'number'
@@ -113,10 +119,10 @@ function isNumber(value: unknown): value is number {
 
 const x: string | number = 42
 if (isNumber(x)) {
-  console.log(x.toFixed(2))  // works
+  console.log(x.toFixed(2))
 }
 
-// 2. The isPopulated helper
+// 2. The isPopulated helper — the key Payload pattern
 function isPopulated<T>(value: number | T): value is T {
   return typeof value === 'object' && value !== null
 }
@@ -125,15 +131,20 @@ type Category = { id: number; title: string }
 const ref: number | Category = { id: 1, title: 'JavaScript' }
 
 if (isPopulated(ref)) {
-  console.log(ref.title)  // works
+  console.log(ref.title)
 }
 
-// 3. In .filter()
+// 3. In .filter() — turns (number | Tag)[] into Tag[]
 type Tag = { id: number; title: string }
 const mixed: (number | Tag)[] = [1, { id: 2, title: 'react' }, 3]
 
 const onlyTags = mixed.filter(
   (item): item is Tag => typeof item !== 'number'
 )
-// onlyTags is Tag[] → [{ id: 2, title: 'react' }]
+
+// 4. Write your own: isString predicate, use it with .filter()
+//    on an array of (string | number)[] to get only strings
 ```
+
+Save. Verify no squiggles. Write step 4. When the file is clean, this
+lesson is done.

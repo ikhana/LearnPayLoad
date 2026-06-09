@@ -101,16 +101,17 @@ const p1: Profile = { username: 'alice' }
 const p2: Profile = { username: 'bob', bio: null }
 const p3: Profile = { username: 'carol', bio: 'Developer' }
 
-// 2. Safe access with ??
-const bioText = p1.bio ?? 'No bio yet'
+// 2. Unsafe access — type this EXACTLY, see the squiggle
+const len = p1.bio.length           // ← squiggle: bio might be null/undefined
+const upper = p2.bio.toUpperCase()  // ← squiggle: same reason
 
-// 3. Unsafe access — see the squiggle
-const len = p1.bio.length
+// 3. Fix len using optional chaining (?.)
+// 4. Fix upper using ?? to provide a fallback first
+// 5. Try a third fix: use an if-check to guard access
 
-// 4. Fix it using ?? or an if-check
-
-// 5. Try removing the ? from bio — what changes?
+// 6. Remove the ? from bio in Profile — what breaks?
 ```
 
-Save. See the squiggle on unsafe access. Fix it. When the file is
+Save. See two squiggles on the unsafe access lines. Fix each one
+using a different technique (?., ??, if-check). When the file is
 clean, this lesson is done.

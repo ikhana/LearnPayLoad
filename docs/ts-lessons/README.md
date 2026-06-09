@@ -18,9 +18,9 @@ _What TypeScript is and how to label things. Start here._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [01.1](01-foundations/01-1-what-is-typescript.md) | What is TypeScript? | Labels, compiler, `strict`, `tsconfig.json` | `[ ]` | Step 00 |
-| [01.2](01-foundations/01-2-type-annotations.md) | Type annotations | `: string`, `: number`, `: boolean` on variables & params | `[ ]` | Step 01.1 |
-| [01.3](01-foundations/01-3-booleans-and-primitives.md) | Booleans & primitives | `boolean`, `true`/`false`, `'true'` ≠ `true` | `[ ]` | Step 01.3 |
+| [01.1](01-foundations/01-1-what-is-typescript.md) | What is TypeScript? | Labels, compiler, `strict`, `tsconfig.json` | `[x]` | Step 00 |
+| [01.2](01-foundations/01-2-type-annotations.md) | Type annotations | `: string`, `: number`, `: boolean` on variables & params | `[x]` | Step 01.1 |
+| [01.3](01-foundations/01-3-booleans-and-primitives.md) | Booleans & primitives | `boolean`, `true`/`false`, `'true'` ≠ `true` | `[x]` | Step 01.3 |
 
 ---
 
@@ -31,10 +31,10 @@ what types they hold._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [02.1](02-object-shapes/02-1-object-types.md) | Object types & `type` aliases | `type Person = { name: string }` | `[ ]` | Step 01.2 |
-| [02.2](02-object-shapes/02-2-interfaces.md) | Interfaces | `interface` vs `type`, when to use which | `[ ]` | Step 01.10 |
-| [02.3](02-object-shapes/02-3-nested-objects.md) | Nested objects | Objects inside objects, autocomplete at depth | `[ ]` | Step 01.4 |
-| [02.4](02-object-shapes/02-4-optional-and-null.md) | Optional properties & null | `?`, `| null`, `??` operator | `[ ]` | Step 01.3 |
+| [02.1](02-object-shapes/02-1-object-types.md) | Object types & `type` aliases | `type Person = { name: string }` | `[x]` | Step 01.2 |
+| [02.2](02-object-shapes/02-2-interfaces.md) | Interfaces | `interface` vs `type`, when to use which | `[x]` | Step 01.10 |
+| [02.3](02-object-shapes/02-3-nested-objects.md) | Nested objects | Objects inside objects, autocomplete at depth | `[x]` | Step 01.4 |
+| [02.4](02-object-shapes/02-4-optional-and-null.md) | Optional properties & null | `?`, `| null`, `??` operator | `[x]` | Step 01.3 |
 
 ---
 

@@ -57,8 +57,8 @@ _Arrays, typed lists, and how TypeScript imports work._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [04.1](04-lists-and-imports/04-1-arrays.md) | Arrays | `string[]`, arrays of objects, element enforcement | `[ ]` | Step 01.9 |
-| [04.2](04-lists-and-imports/04-2-import-type.md) | `import type` | Type-only imports, compile-time erasure, `import` vs `import type` | `[ ]` | Step 01.1 |
+| [04.1](04-lists-and-imports/04-1-arrays.md) | Arrays | `string[]`, arrays of objects, element enforcement | `[x]` | Step 01.9 |
+| [04.2](04-lists-and-imports/04-2-import-type.md) | `import type` | Type-only imports, compile-time erasure, `import` vs `import type` | `[x]` | Step 01.1 |
 
 ---
 

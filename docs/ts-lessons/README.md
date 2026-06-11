@@ -45,9 +45,9 @@ specific strings."_
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [03.1](03-restricting-values/03-1-literal-types.md) | Literal types | `'red'` as a type, not just a value | `[ ]` | Step 01.2 |
-| [03.2](03-restricting-values/03-2-union-types.md) | Union types | `'draft' \| 'published'`, the `\|` operator | `[ ]` | Step 01.5 |
-| [03.3](03-restricting-values/03-3-unions-of-shapes.md) | Unions of different shapes | `string \| { label: string; value: string }` | `[ ]` | Step 01.8 |
+| [03.1](03-restricting-values/03-1-literal-types.md) | Literal types | `'red'` as a type, not just a value | `[x]` | Step 01.2 |
+| [03.2](03-restricting-values/03-2-union-types.md) | Union types | `'draft' \| 'published'`, the `\|` operator | `[x]` | Step 01.5 |
+| [03.3](03-restricting-values/03-3-unions-of-shapes.md) | Unions of different shapes | `string \| { label: string; value: string }` | `[x]` | Step 01.8 |
 
 ---
 

@@ -200,6 +200,7 @@ export interface Post {
   publishedAt?: string | null;
   status: 'draft' | 'published';
   categories: number | Category;
+  tags?: (number | Tag)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -223,21 +224,7 @@ export interface Tag {
   id: number;
   title: string;
   slug: string;
-  description?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
+  description?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -380,6 +367,7 @@ export interface PostsSelect<T extends boolean = true> {
   publishedAt?: T;
   status?: T;
   categories?: T;
+  tags?: T;
   updatedAt?: T;
   createdAt?: T;
 }

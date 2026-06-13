@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
   slug: 'media',
+  admin: {
+    group: 'Content',
+    defaultColumns: ['filename', 'alt', 'updatedAt'],
+  },
   access: {
     read: () => true,
   },
@@ -10,6 +14,11 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       required: true,
+    },
+
+    {
+      name: 'caption',
+      type: 'text',
     },
   ],
   upload: {

@@ -69,9 +69,9 @@ project._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [05.1](05-generics/05-1-what-are-generics.md) | What are generics? | `Box<T>`, type parameters, the `< >` slot | `[ ]` | Step 02.2 |
-| [05.2](05-generics/05-2-array-is-a-generic.md) | `Array<T>` — a generic you know | `Array<string>` ≡ `string[]`, multiple type params | `[ ]` | Step 02.2 |
-| [05.3](05-generics/05-3-generics-in-payload.md) | Generics in Payload | `RelationshipField`, `(number \| Category)[]` | `[ ]` | Step 02.5 |
+| [05.1](05-generics/05-1-what-are-generics.md) | What are generics? | `Box<T>`, type parameters, the `< >` slot | `[x]` | Step 02.2 |
+| [05.2](05-generics/05-2-array-is-a-generic.md) | `Array<T>` — a generic you know | `Array<string>` ≡ `string[]`, multiple type params | `[x]` | Step 02.2 |
+| [05.3](05-generics/05-3-generics-in-payload.md) | Generics in Payload | `RelationshipField`, `(number \| Category)[]` | `[x]` | Step 02.5 |
 
 ---
 
@@ -81,9 +81,9 @@ _How to tell TypeScript which branch of a union you're in._
 
 | # | Lesson | What you learn | Status | Payload step |
 |---|---|---|---|---|
-| [06.1](06-narrowing/06-1-the-narrowing-problem.md) | The narrowing problem | Why `value.length` fails on `string \| number` | `[ ]` | Step 02.7 |
-| [06.2](06-narrowing/06-2-typeof-guards.md) | `typeof` type guards | `typeof x === 'string'`, narrowing inside `if` blocks | `[ ]` | Step 02.7 |
-| [06.3](06-narrowing/06-3-type-predicates.md) | Type predicates | `value is T`, custom guard functions, `isPopulated<T>` | `[ ]` | Step 02.8 |
+| [06.1](06-narrowing/06-1-the-narrowing-problem.md) | The narrowing problem | Why `value.length` fails on `string \| number` | `[x]` | Step 02.7 |
+| [06.2](06-narrowing/06-2-typeof-guards.md) | `typeof` type guards | `typeof x === 'string'`, narrowing inside `if` blocks | `[x]` | Step 02.7 |
+| [06.3](06-narrowing/06-3-type-predicates.md) | Type predicates | `value is T`, custom guard functions, `isPopulated<T>` | `[x]` | Step 02.8 |
 
 ---
 

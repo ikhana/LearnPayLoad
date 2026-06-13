@@ -205,6 +205,8 @@ export interface Post {
   createdAt: string;
 }
 /**
+ * Topic categories for organizing posts. The SEO plugin will analyze content gaps per category.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
@@ -217,6 +219,8 @@ export interface Category {
   createdAt: string;
 }
 /**
+ * Granular keyword tags. Posts can have many tags — used for topic analysis in the SEO plugin
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tags".
  */

@@ -1,6 +1,6 @@
 # TS 03.3 — Unions of different shapes
 
-> **Topic 03: Restricting Values** · Prev: [03.2](03-2-union-types.md) · Next: [04.1](../04-lists-and-imports/04-1-arrays.md)
+> **Topic 03: Restricting Values** · Prev: [03.2](03-2-union-types.md) · Next: [03.4](03-4-as-const.md)
 
 ---
 

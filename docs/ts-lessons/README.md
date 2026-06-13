@@ -48,6 +48,7 @@ specific strings."_
 | [03.1](03-restricting-values/03-1-literal-types.md) | Literal types | `'red'` as a type, not just a value | `[x]` | Step 01.2 |
 | [03.2](03-restricting-values/03-2-union-types.md) | Union types | `'draft' \| 'published'`, the `\|` operator | `[x]` | Step 01.5 |
 | [03.3](03-restricting-values/03-3-unions-of-shapes.md) | Unions of different shapes | `string \| { label: string; value: string }` | `[x]` | Step 01.8 |
+| [03.4](03-restricting-values/03-4-as-const.md) | `as const` | `as const`, `readonly`, `typeof ARRAY[number]` | `[ ]` | Step 03.4 |
 
 ---
 

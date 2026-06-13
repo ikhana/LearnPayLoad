@@ -4,6 +4,10 @@ export const Tags: CollectionConfig = {
   slug: 'tags',
   admin: {
     useAsTitle: 'title',
+    defaultColumns: ['title', 'slug', 'updatedAt'],
+    group: 'Content',
+    description:
+      'Granular keyword tags. Posts can have many tags — used for topic analysis in the SEO plugin',
   },
   fields: [
     {
@@ -24,4 +28,5 @@ export const Tags: CollectionConfig = {
       type: 'textarea',
     },
   ],
+  timestamps: true,
 }

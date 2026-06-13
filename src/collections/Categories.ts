@@ -4,6 +4,10 @@ export const Categories: CollectionConfig = {
   slug: 'categories',
   admin: {
     useAsTitle: 'title',
+    defaultColumns: ['title', 'slug', 'updatedAt'],
+    group: 'Content',
+    description:
+      'Topic categories for organizing posts. The SEO plugin will analyze content gaps per category.',
   },
   fields: [
     {

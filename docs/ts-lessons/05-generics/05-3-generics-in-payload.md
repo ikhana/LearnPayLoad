@@ -97,9 +97,9 @@ interface Post {
 }
 
 // Write your answers as comments:
-// A1:
-// A2:
-// A3:
+// A1: This will be a number at depth 0 
+// A2: This will also be a number[] a depth 0 
+// A3: this will be hoever media boject at depth 2 
 
 // Q4: Rewrite (number | Tag)[] using Array<> syntax
 // Q5: Why is it number | Category instead of just Category?

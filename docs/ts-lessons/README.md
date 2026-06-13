@@ -60,6 +60,7 @@ _Arrays, typed lists, and how TypeScript imports work._
 |---|---|---|---|---|
 | [04.1](04-lists-and-imports/04-1-arrays.md) | Arrays | `string[]`, arrays of objects, element enforcement | `[x]` | Step 01.9 |
 | [04.2](04-lists-and-imports/04-2-import-type.md) | `import type` | Type-only imports, compile-time erasure, `import` vs `import type` | `[x]` | Step 01.1 |
+| [04.3](04-lists-and-imports/04-3-discriminated-unions.md) | Discriminated unions | `type` as discriminant, narrowing object unions | `[ ]` | Step 04.2 |
 
 ---
 
@@ -73,6 +74,7 @@ project._
 | [05.1](05-generics/05-1-what-are-generics.md) | What are generics? | `Box<T>`, type parameters, the `< >` slot | `[x]` | Step 02.2 |
 | [05.2](05-generics/05-2-array-is-a-generic.md) | `Array<T>` — a generic you know | `Array<string>` ≡ `string[]`, multiple type params | `[x]` | Step 02.2 |
 | [05.3](05-generics/05-3-generics-in-payload.md) | Generics in Payload | `RelationshipField`, `(number \| Category)[]` | `[x]` | Step 02.5 |
+| [05.4](05-generics/05-4-function-types.md) | Function types | Function shape as a type, callbacks, Payload's `Access` type | `[ ]` | Step 05.1 |
 
 ---
 

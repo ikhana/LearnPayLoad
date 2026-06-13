@@ -1,6 +1,6 @@
 # TS 04.2 — `import type`
 
-> **Topic 04: Lists & Imports** · Prev: [04.1](04-1-arrays.md) · Next: [05.1](../05-generics/05-1-what-are-generics.md)
+> **Topic 04: Lists & Imports** · Prev: [04.1](04-1-arrays.md) · Next: [04.3](04-3-discriminated-unions.md)
 
 ---
 

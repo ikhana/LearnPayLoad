@@ -1,6 +1,6 @@
 # TS 05.3 — Generics in Payload
 
-> **Topic 05: Generics** · Prev: [05.2](05-2-array-is-a-generic.md) · Next: [06.1](../06-narrowing/06-1-the-narrowing-problem.md)
+> **Topic 05: Generics** · Prev: [05.2](05-2-array-is-a-generic.md) · Next: [05.4](05-4-function-types.md)
 
 ---
 

@@ -80,8 +80,14 @@ in that step, never abstract.
 | 03.3 | Site Settings global (name, tagline, SEO defaults) | `group` field → nested objects | `[ ]` | [steps/03-3-site-settings-global.md](steps/03-3-site-settings-global.md) |
 | 03.4 | Admin polish for globals + `as const` | `as const`, `readonly`, `typeof ARRAY[number]` | `[ ]` | [steps/03-4-globals-admin-polish.md](steps/03-4-globals-admin-polish.md) |
 | 03.5 | Generate types + test globals end-to-end | Reading global interfaces in generated types | `[ ]` | [steps/03-5-test-globals.md](steps/03-5-test-globals.md) |
-| 04 | Uploads — Media collection, image sizes, focal point | Discriminated unions | `[ ]` | _(coming)_ |
-| 05 | Access control — who can read/create/update/delete | Function types & type predicates | `[ ]` | _(coming)_ |
+| **04** | **Uploads — Media collection, image sizes, focal point** | Discriminated unions | `[ ]` | _(see 04.1–04.3 below)_ |
+| 04.1 | Media upload config (imageSizes, mimeTypes, focalPoint, crop) | Nested config typing, autocomplete | `[ ]` | [steps/04-1-media-upload-config.md](steps/04-1-media-upload-config.md) |
+| 04.2 | Media admin polish + discriminated unions | `type` as discriminant, field narrowing | `[ ]` | [steps/04-2-media-admin-polish.md](steps/04-2-media-admin-polish.md) |
+| 04.3 | Generate types + test uploads | Reading `sizes` object in generated types | `[ ]` | [steps/04-3-generate-types-uploads.md](steps/04-3-generate-types-uploads.md) |
+| **05** | **Access control — who can read/create/update/delete** | Function types & type predicates | `[ ]` | _(see 05.1–05.3 below)_ |
+| 05.1 | Roles on Users + basic access control on Posts | `Access` function type, `saveToJWT` | `[ ]` | [steps/05-1-roles-and-basic-access.md](steps/05-1-roles-and-basic-access.md) |
+| 05.2 | Global access + reusable access functions | Extracting typed functions, `src/access/` pattern | `[ ]` | [steps/05-2-global-access-reusable.md](steps/05-2-global-access-reusable.md) |
+| 05.3 | Function types lesson + test access control | Function types, callbacks, testing with API | `[ ]` | [steps/05-3-test-access-control.md](steps/05-3-test-access-control.md) |
 | 06 | Hooks — `beforeChange`, `afterChange`, `beforeDelete` | `async`/`await` + `Promise<T>` | `[ ]` | _(coming)_ |
 | 07 | Custom field components in the admin UI | React + TS — props typing, `FC`, `ReactElement` | `[ ]` | _(coming)_ |
 | 08 | Custom endpoints — your own API routes on Payload | Request/response typing (Next.js handlers) | `[ ]` | _(coming)_ |

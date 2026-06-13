@@ -1,5 +1,4 @@
 import type { CollectionConfig } from 'payload'
-import { text } from 'stream/consumers'
 
 export const Tags: CollectionConfig = {
   slug: 'tags',
@@ -19,7 +18,7 @@ export const Tags: CollectionConfig = {
 
     {
       name: 'description',
-      type: 'richText',
+      type: 'textarea',
     },
   ],
 }

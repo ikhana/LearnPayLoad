@@ -8,6 +8,7 @@ export const Posts: CollectionConfig = {
     description:
       'Blog posts and articles — the canonical content type our AI SEO plugin will analyze.',
   },
+
   fields: [
     {
       name: 'title',

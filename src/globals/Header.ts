@@ -4,6 +4,9 @@ import { tr } from 'payload/i18n/tr'
 export const Header: GlobalConfig = {
   slug: 'header',
   label: 'Header',
+  admin: {
+    group: 'Settings',
+  },
   fields: [
     {
       name: 'logo',

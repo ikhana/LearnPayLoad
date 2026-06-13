@@ -4,6 +4,9 @@ import { upload } from 'payload/shared'
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
   label: 'Site Settings',
+  admin: {
+    group: 'Settings',
+  },
 
   fields: [
     {

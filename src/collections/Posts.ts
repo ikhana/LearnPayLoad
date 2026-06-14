@@ -8,6 +8,28 @@ export const Posts: CollectionConfig = {
     description:
       'Blog posts and articles — the canonical content type our AI SEO plugin will analyze.',
   },
+  access: {
+    // Anyone can read published posts, logged-in users see all
+    read: ({ req: { user } }) => {
+      if (user) return true
+      return { status: { equals: 'published' } }
+    },
+
+    // Only logged-in users can create
+    create: ({ req: { user } }) => Boolean(user),
+
+    // Only admins and editors can update
+    update: ({ req: { user } }) => {
+      if (!user) return false
+      return Boolean((user.roles as string[])?.some((role) => ['admin', 'editor'].includes(role)))
+    },
+
+    // Only admins can delete
+    delete: ({ req: { user } }) => {
+      if (!user) return false
+      return Boolean((user.roles as string[])?.includes('admin'))
+    },
+  },
 
   fields: [
     {

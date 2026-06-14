@@ -137,6 +137,10 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  /**
+   * Admins can do everything , Editors can only edit content
+   */
+  roles: ('admin' | 'editor')[];
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -358,6 +362,7 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  roles?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

@@ -1,6 +1,6 @@
 # TS 06.3 — Type predicates (`value is T`)
 
-> **Topic 06: Narrowing & Type Guards** · Prev: [06.2](06-2-typeof-guards.md)
+> **Topic 06: Narrowing & Type Guards** · Prev: [06.2](06-2-typeof-guards.md) · Next: [06.4](06-4-async-await.md)
 
 ---
 

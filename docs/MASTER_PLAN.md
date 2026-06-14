@@ -88,7 +88,10 @@ in that step, never abstract.
 | 05.1 | Roles on Users + basic access control on Posts | `Access` function type, `saveToJWT` | `[ ]` | [steps/05-1-roles-and-basic-access.md](steps/05-1-roles-and-basic-access.md) |
 | 05.2 | Global access + reusable access functions | Extracting typed functions, `src/access/` pattern | `[ ]` | [steps/05-2-global-access-reusable.md](steps/05-2-global-access-reusable.md) |
 | 05.3 | Function types lesson + test access control | Function types, callbacks, testing with API | `[ ]` | [steps/05-3-test-access-control.md](steps/05-3-test-access-control.md) |
-| 06 | Hooks — `beforeChange`, `afterChange`, `beforeDelete` | `async`/`await` + `Promise<T>` | `[ ]` | _(coming)_ |
+| **06** | **Hooks — `beforeChange`, `afterChange`, `beforeDelete`** | `async`/`await` + `Promise<T>` | `[ ]` | _(see 06.1–06.3 below)_ |
+| 06.1 | beforeChange hook — auto-generate slugs | `CollectionBeforeChangeHook` type, `operation` narrowing | `[ ]` | [steps/06-1-before-change-slug.md](steps/06-1-before-change-slug.md) |
+| 06.2 | afterChange hook — auto-set publishedAt | `beforeChange` vs `afterChange`, `originalDoc` comparison | `[ ]` | [steps/06-2-after-change-hook.md](steps/06-2-after-change-hook.md) |
+| 06.3 | Hook context + preventing infinite loops | `req.context` flags, hook safety rules, generate types | `[ ]` | [steps/06-3-hook-context-loops.md](steps/06-3-hook-context-loops.md) |
 | 07 | Custom field components in the admin UI | React + TS — props typing, `FC`, `ReactElement` | `[ ]` | _(coming)_ |
 | 08 | Custom endpoints — your own API routes on Payload | Request/response typing (Next.js handlers) | `[ ]` | _(coming)_ |
 | 09 | Blocks — flexible content / page-builder pattern | Discriminated unions revisited (block variants) | `[ ]` | _(coming)_ |

@@ -87,6 +87,7 @@ _How to tell TypeScript which branch of a union you're in._
 | [06.1](06-narrowing/06-1-the-narrowing-problem.md) | The narrowing problem | Why `value.length` fails on `string \| number` | `[x]` | Step 02.7 |
 | [06.2](06-narrowing/06-2-typeof-guards.md) | `typeof` type guards | `typeof x === 'string'`, narrowing inside `if` blocks | `[x]` | Step 02.7 |
 | [06.3](06-narrowing/06-3-type-predicates.md) | Type predicates | `value is T`, custom guard functions, `isPopulated<T>` | `[x]` | Step 02.8 |
+| [06.4](06-narrowing/06-4-async-await.md) | `async`/`await` | `Promise<T>`, `await`, error handling in async functions | `[ ]` | Step 06.1 |
 
 ---
 

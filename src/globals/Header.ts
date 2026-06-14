@@ -1,3 +1,4 @@
+import { isAdmin } from '@/access/isAdmin'
 import type { GlobalConfig } from 'payload'
 import { tr } from 'payload/i18n/tr'
 
@@ -6,6 +7,10 @@ export const Header: GlobalConfig = {
   label: 'Header',
   admin: {
     group: 'Settings',
+  },
+  access: {
+    read: () => true,
+    update: isAdmin,
   },
   fields: [
     {

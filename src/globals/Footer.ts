@@ -1,3 +1,4 @@
+import { isAdmin } from '@/access/isAdmin'
 import type { GlobalConfig } from 'payload'
 
 export const Footer: GlobalConfig = {
@@ -5,6 +6,11 @@ export const Footer: GlobalConfig = {
   label: 'Footer',
   admin: {
     group: 'Settings',
+  },
+
+  access: {
+    read: () => true,
+    update: isAdmin,
   },
 
   fields: [

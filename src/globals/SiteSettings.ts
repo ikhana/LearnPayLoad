@@ -1,3 +1,4 @@
+import { isAdmin } from '@/access/isAdmin'
 import type { GlobalConfig } from 'payload'
 import { upload } from 'payload/shared'
 
@@ -6,6 +7,11 @@ export const SiteSettings: GlobalConfig = {
   label: 'Site Settings',
   admin: {
     group: 'Settings',
+  },
+
+  access: {
+    read: () => true,
+    update: isAdmin,
   },
 
   fields: [

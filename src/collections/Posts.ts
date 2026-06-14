@@ -1,3 +1,7 @@
+import { isAdmin } from '@/access/isAdmin'
+import { isAdminOrEditor } from '@/access/isAdminOrEditor'
+import { isAuthenticated } from '@/access/isAuthenticated'
+import { isAuthenticatedOrPublished } from '@/access/isAuthenticatedOrPublished'
 import type { CollectionConfig } from 'payload'
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -10,25 +14,16 @@ export const Posts: CollectionConfig = {
   },
   access: {
     // Anyone can read published posts, logged-in users see all
-    read: ({ req: { user } }) => {
-      if (user) return true
-      return { status: { equals: 'published' } }
-    },
+    read: isAuthenticatedOrPublished,
 
     // Only logged-in users can create
-    create: ({ req: { user } }) => Boolean(user),
+    create: isAuthenticated,
 
     // Only admins and editors can update
-    update: ({ req: { user } }) => {
-      if (!user) return false
-      return Boolean((user.roles as string[])?.some((role) => ['admin', 'editor'].includes(role)))
-    },
+    update: isAdminOrEditor,
 
     // Only admins can delete
-    delete: ({ req: { user } }) => {
-      if (!user) return false
-      return Boolean((user.roles as string[])?.includes('admin'))
-    },
+    delete: isAdmin,
   },
 
   fields: [

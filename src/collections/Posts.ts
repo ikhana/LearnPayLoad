@@ -5,6 +5,7 @@ import { isAuthenticatedOrPublished } from '@/access/isAuthenticatedOrPublished'
 import type { CollectionConfig } from 'payload'
 import { slugify } from '@/hooks/slugify'
 import { autoPublishedDate } from '@/hooks/autoPublishDate'
+import { logChanges } from '@/hooks/logChanges'
 export const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
@@ -30,12 +31,7 @@ export const Posts: CollectionConfig = {
 
   hooks: {
     beforeChange: [slugify, autoPublishedDate],
-    afterChange: [
-      async ({ doc, operation }) => {
-        console.log(`[Posts] ${operation}: ${doc.title} (id: ${doc.id})`)
-        return doc
-      },
-    ],
+    afterChange: [logChanges],
   },
   fields: [
     {

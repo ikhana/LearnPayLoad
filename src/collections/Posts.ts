@@ -3,6 +3,7 @@ import { isAdminOrEditor } from '@/access/isAdminOrEditor'
 import { isAuthenticated } from '@/access/isAuthenticated'
 import { isAuthenticatedOrPublished } from '@/access/isAuthenticatedOrPublished'
 import type { CollectionConfig } from 'payload'
+import { slugify } from '@/hooks/slugify'
 export const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
@@ -26,6 +27,9 @@ export const Posts: CollectionConfig = {
     delete: isAdmin,
   },
 
+  hooks: {
+    beforeChange: [slugify],
+  },
   fields: [
     {
       name: 'title',

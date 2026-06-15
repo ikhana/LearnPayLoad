@@ -80,7 +80,7 @@ the `layout` field typed as a union of block types.
 
 ### 5b. Create the frontend page route
 
-Create `src/app/(frontend)/pages/[slug]/page.tsx`:
+Create `src/app/(frontend)/[slug]/page.tsx`:
 
 ```tsx
 import { getPayload } from 'payload'

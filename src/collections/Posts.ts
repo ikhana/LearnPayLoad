@@ -99,6 +99,9 @@ export const Posts: CollectionConfig = {
       required: true,
       admin: {
         position: 'sidebar',
+        components: {
+          Field: '/src/components/StatusCell',
+        },
       },
     },
     {

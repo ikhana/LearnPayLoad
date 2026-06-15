@@ -92,8 +92,14 @@ in that step, never abstract.
 | 06.1 | beforeChange hook — auto-generate slugs | `CollectionBeforeChangeHook` type, `operation` narrowing | `[ ]` | [steps/06-1-before-change-slug.md](steps/06-1-before-change-slug.md) |
 | 06.2 | afterChange hook — auto-set publishedAt | `beforeChange` vs `afterChange`, `originalDoc` comparison | `[ ]` | [steps/06-2-after-change-hook.md](steps/06-2-after-change-hook.md) |
 | 06.3 | Hook context + preventing infinite loops | `req.context` flags, hook safety rules, generate types | `[ ]` | [steps/06-3-hook-context-loops.md](steps/06-3-hook-context-loops.md) |
-| 07 | Custom field components in the admin UI | React + TS — props typing, `FC`, `ReactElement` | `[ ]` | _(coming)_ |
-| 08 | Custom endpoints — your own API routes on Payload | Request/response typing (Next.js handlers) | `[ ]` | _(coming)_ |
+| **07** | **Custom components in the admin UI** | React + TS — `'use client'`, props typing, `FC` | `[ ]` | _(see 07.1–07.3 below)_ |
+| 07.1 | `ui` field — excerpt character counter | `'use client'`, `useWatchForm`, arrow component | `[ ]` | [steps/07-1-ui-field-component.md](steps/07-1-ui-field-component.md) |
+| 07.2 | Custom slug field with "Generate" button | `TextFieldClientComponent`, `useField`, event handlers | `[ ]` | [steps/07-2-custom-slug-field.md](steps/07-2-custom-slug-field.md) |
+| 07.3 | Custom cell — status badge in list view | `useTableCell`, `Record<K,V>`, conditional styling | `[ ]` | [steps/07-3-custom-cell-component.md](steps/07-3-custom-cell-component.md) |
+| **08** | **Custom endpoints — your own API routes on Payload** | `PayloadRequest`, `Response.json()`, `Promise.all()` | `[ ]` | _(see 08.1–08.3 below)_ |
+| 08.1 | Search endpoint — public GET with query params | URL parsing, `req.payload.find()`, shaping responses | `[ ]` | [steps/08-1-custom-endpoint.md](steps/08-1-custom-endpoint.md) |
+| 08.2 | Bulk publish — authenticated POST with body | `req.user`, `req.json()`, `Promise.all()`, error handling | `[ ]` | [steps/08-2-authenticated-endpoint.md](steps/08-2-authenticated-endpoint.md) |
+| 08.3 | Global stats endpoint + generate types | Global endpoints, `req.payload.count()`, parallel queries | `[ ]` | [steps/08-3-global-stats-endpoint.md](steps/08-3-global-stats-endpoint.md) |
 | 09 | Blocks — flexible content / page-builder pattern | Discriminated unions revisited (block variants) | `[ ]` | _(coming)_ |
 | 10 | Versions and drafts | Utility types — `Partial<T>`, `Pick<T,K>`, `Omit<T,K>` | `[ ]` | _(coming)_ |
 | 11 | Localization (i18n) | `Record<K,V>` for locale maps | `[ ]` | _(coming)_ |

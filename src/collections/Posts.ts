@@ -45,7 +45,7 @@ export const Posts: CollectionConfig = {
       type: 'text',
       unique: true,
       index: true,
-      admin: { position: 'sidebar', components: { Field: '/src/components/SlugField' } },
+      admin: { position: 'sidebar', components: { Field: '/components/SlugField#SlugField' } },
     },
     {
       name: 'excerpt',
@@ -59,7 +59,7 @@ export const Posts: CollectionConfig = {
       type: 'ui',
       admin: {
         components: {
-          Field: '/src/components/ExcerptCharCount',
+          Field: '/components/ExcerptCharCount#ExcerptCharCount',
         },
       },
     },
@@ -100,7 +100,7 @@ export const Posts: CollectionConfig = {
       admin: {
         position: 'sidebar',
         components: {
-          Field: '/src/components/StatusCell',
+          Cell: '/components/StatusCell#StatusCell',
         },
       },
     },

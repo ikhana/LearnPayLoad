@@ -91,6 +91,16 @@ _How to tell TypeScript which branch of a union you're in._
 
 ---
 
+## Topic 07 — React + TypeScript
+
+_How to type React components, props, and Payload's admin UI hooks._
+
+| # | Lesson | What you learn | Status | Payload step |
+|---|---|---|---|---|
+| [07.1](07-react-ts/07-1-react-component-types.md) | React component types | `FC`, props typing, event handlers, `'use client'` | `[ ]` | Step 07.1 |
+
+---
+
 ## How to use these lessons
 
 **If you're new to TypeScript:** Work through Topics 01–04 before

@@ -1,11 +1,15 @@
 import React, { Fragment } from 'react'
 import type { Page } from '@/payload-types'
 import { Component as HeroBlock } from './Hero'
+import { Component as ContentBlock } from './Content'
+import { Component as CallToActionBlock } from './CallToAction/'
 
 type LayoutBlock = NonNullable<Page['layout']>[number]
 
 const blockComponents: Record<string, React.FC<any>> = {
   hero: HeroBlock,
+  content: ContentBlock,
+  calltoaction: CallToActionBlock,
 }
 
 export const RenderBlocks: React.FC<{

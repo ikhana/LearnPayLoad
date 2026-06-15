@@ -48,58 +48,64 @@ Same `{ path, method, handler }` shape. Only the URL prefix changes.
 
 ## 5. Steps
 
-### 5a. Add the stats endpoint to SiteSettings
+### 5a. Create the endpoint file
 
-Open `src/globals/SiteSettings.ts` and add `endpoints`:
+Create `src/endpoints/siteStats.ts`:
 
 ```ts
-import type { GlobalConfig } from 'payload'
+export const siteStats = {
+  path: '/stats',
+  method: 'get' as const,
+  handler: async (req: any) => {
+    if (!req.user) {
+      return Response.json(
+        { error: 'Authentication required' },
+        { status: 401 },
+      )
+    }
+
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+
+    const [posts, categories, tags] = await Promise.all([
+      req.payload.count({ collection: 'posts' }),
+      req.payload.count({ collection: 'categories' }),
+      req.payload.count({ collection: 'tags' }),
+    ])
+
+    const publishedToday = await req.payload.count({
+      collection: 'posts',
+      where: {
+        and: [
+          { status: { equals: 'published' } },
+          { publishedAt: { greater_than_equal: today.toISOString() } },
+        ],
+      },
+    })
+
+    return Response.json({
+      totalPosts: posts.totalDocs,
+      totalCategories: categories.totalDocs,
+      totalTags: tags.totalDocs,
+      publishedToday: publishedToday.totalDocs,
+      generatedAt: new Date().toISOString(),
+    })
+  },
+}
+```
+
+### 5b. Import into SiteSettings
+
+Open `src/globals/SiteSettings.ts` and add:
+
+```ts
+import { siteStats } from '@/endpoints/siteStats'
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
   // ... existing fields, access ...
 
-  endpoints: [
-    {
-      path: '/stats',
-      method: 'get',
-      handler: async (req) => {
-        if (!req.user) {
-          return Response.json(
-            { error: 'Authentication required' },
-            { status: 401 },
-          )
-        }
-
-        const today = new Date()
-        today.setHours(0, 0, 0, 0)
-
-        const [posts, categories, tags] = await Promise.all([
-          req.payload.count({ collection: 'posts' }),
-          req.payload.count({ collection: 'categories' }),
-          req.payload.count({ collection: 'tags' }),
-        ])
-
-        const publishedToday = await req.payload.count({
-          collection: 'posts',
-          where: {
-            and: [
-              { status: { equals: 'published' } },
-              { publishedAt: { greater_than_equal: today.toISOString() } },
-            ],
-          },
-        })
-
-        return Response.json({
-          totalPosts: posts.totalDocs,
-          totalCategories: categories.totalDocs,
-          totalTags: tags.totalDocs,
-          publishedToday: publishedToday.totalDocs,
-          generatedAt: new Date().toISOString(),
-        })
-      },
-    },
-  ],
+  endpoints: [siteStats],
 }
 ```
 
@@ -163,7 +169,7 @@ Expected response:
 ## 7. Commit
 
 ```bash
-git add src/globals/SiteSettings.ts
+git add src/endpoints/siteStats.ts src/globals/SiteSettings.ts
 git commit -m "step 08.3 — global stats endpoint on SiteSettings"
 ```
 

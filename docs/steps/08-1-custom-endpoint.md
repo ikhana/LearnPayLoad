@@ -68,63 +68,77 @@ unless you check `req.user` yourself.
 
 ## 5. Steps
 
-### 5a. Add the endpoint to Posts
+### 5a. Create the endpoint file
 
-Open `src/collections/Posts.ts` and add an `endpoints` array:
+Create `src/endpoints/searchPosts.ts`:
 
 ```ts
+export const searchPosts = {
+  path: '/search',
+  method: 'get' as const,
+  handler: async (req: any) => {
+    const url = new URL(req.url)
+    const query = url.searchParams.get('q') || ''
+    const limit = parseInt(url.searchParams.get('limit') || '10')
+
+    if (!query) {
+      return Response.json(
+        { error: 'Missing "q" query parameter' },
+        { status: 400 },
+      )
+    }
+
+    const results = await req.payload.find({
+      collection: 'posts',
+      where: {
+        or: [
+          { title: { contains: query } },
+          { excerpt: { contains: query } },
+        ],
+      },
+      limit,
+      sort: '-createdAt',
+    })
+
+    return Response.json({
+      query,
+      total: results.totalDocs,
+      posts: results.docs.map((post) => ({
+        id: post.id,
+        title: post.title,
+        slug: post.slug,
+        excerpt: post.excerpt,
+      })),
+    })
+  },
+}
+```
+
+### 5b. Import and register in Posts
+
+Open `src/collections/Posts.ts` and add:
+
+```ts
+import { searchPosts } from '@/endpoints/searchPosts'
+
 export const Posts: CollectionConfig = {
   slug: 'posts',
   // ... existing admin, access, hooks, fields ...
 
-  endpoints: [
-    {
-      path: '/search',
-      method: 'get',
-      handler: async (req) => {
-        const url = new URL(req.url)
-        const query = url.searchParams.get('q') || ''
-        const limit = parseInt(url.searchParams.get('limit') || '10')
-
-        if (!query) {
-          return Response.json(
-            { error: 'Missing "q" query parameter' },
-            { status: 400 },
-          )
-        }
-
-        const results = await req.payload.find({
-          collection: 'posts',
-          where: {
-            or: [
-              { title: { contains: query } },
-              { excerpt: { contains: query } },
-            ],
-          },
-          limit,
-          sort: '-createdAt',
-        })
-
-        return Response.json({
-          query,
-          total: results.totalDocs,
-          posts: results.docs.map((post) => ({
-            id: post.id,
-            title: post.title,
-            slug: post.slug,
-            excerpt: post.excerpt,
-          })),
-        })
-      },
-    },
-  ],
+  endpoints: [searchPosts],
 }
 ```
+
+> **Pattern:** Same as `src/access/` and `src/hooks/` — one file per
+> endpoint, import into the collection. Keeps collections clean and
+> endpoints reusable.
 
 **What's happening:**
 
 | Line | What it does |
 |---|---|
+| `method: 'get' as const` | `as const` narrows `'get'` from `string` — Payload needs the literal type |
+| `handler: async (req: any)` | We use `any` because Payload's `PayloadRequest` doesn't carry project-specific types in standalone files |
 | `path: '/search'` | Creates `/api/posts/search` |
 | `new URL(req.url)` | Parses the full URL to extract query parameters |
 | `url.searchParams.get('q')` | Gets the `?q=` query parameter |
@@ -166,7 +180,7 @@ Or just open the URL in your browser.
 ## 7. Commit
 
 ```bash
-git add src/collections/Posts.ts
+git add src/endpoints/searchPosts.ts src/collections/Posts.ts
 git commit -m "step 08.1 — custom search endpoint on Posts"
 ```
 

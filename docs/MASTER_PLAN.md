@@ -100,7 +100,10 @@ in that step, never abstract.
 | 08.1 | Search endpoint — public GET with query params | URL parsing, `req.payload.find()`, shaping responses | `[ ]` | [steps/08-1-custom-endpoint.md](steps/08-1-custom-endpoint.md) |
 | 08.2 | Bulk publish — authenticated POST with body | `req.user`, `req.json()`, `Promise.all()`, error handling | `[ ]` | [steps/08-2-authenticated-endpoint.md](steps/08-2-authenticated-endpoint.md) |
 | 08.3 | Global stats endpoint + generate types | Global endpoints, `req.payload.count()`, parallel queries | `[ ]` | [steps/08-3-global-stats-endpoint.md](steps/08-3-global-stats-endpoint.md) |
-| 09 | Blocks — flexible content / page-builder pattern | Discriminated unions revisited (block variants) | `[ ]` | _(coming)_ |
+| **09** | **Blocks — flexible content / page-builder** | Discriminated unions revisited (`blockType`) | `[ ]` | _(see 09.1–09.3 below)_ |
+| 09.1 | Hero block + Pages collection | `Block` type, `type: 'blocks'`, `blockType` discriminant | `[ ]` | [steps/09-1-first-block.md](steps/09-1-first-block.md) |
+| 09.2 | Content + CallToAction blocks | Multiple blocks, arrays inside blocks, `labels` | `[ ]` | [steps/09-2-content-and-cta-blocks.md](steps/09-2-content-and-cta-blocks.md) |
+| 09.3 | Generate types + render blocks | `switch` on `blockType`, exhaustive check, `never` type | `[ ]` | [steps/09-3-generate-types-blocks.md](steps/09-3-generate-types-blocks.md) |
 | 10 | Versions and drafts | Utility types — `Partial<T>`, `Pick<T,K>`, `Omit<T,K>` | `[ ]` | _(coming)_ |
 | 11 | Localization (i18n) | `Record<K,V>` for locale maps | `[ ]` | _(coming)_ |
 | 12 | Plugins — using a plugin, then writing one from scratch | Module augmentation & ambient types | `[ ]` | _(coming)_ |

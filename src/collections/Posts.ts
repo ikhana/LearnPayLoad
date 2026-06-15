@@ -15,6 +15,7 @@ export const Posts: CollectionConfig = {
     description:
       'Blog posts and articles — the canonical content type our AI SEO plugin will analyze.',
   },
+
   access: {
     // Anyone can read published posts, logged-in users see all
     read: isAuthenticatedOrPublished,
@@ -51,6 +52,15 @@ export const Posts: CollectionConfig = {
       type: 'textarea',
       admin: {
         description: 'Short summary used on listing pages and as a fallback meta description.',
+      },
+    },
+    {
+      name: 'excerptCharCount',
+      type: 'ui',
+      admin: {
+        components: {
+          Field: '/src/components/ExcerptCharCount',
+        },
       },
     },
     {

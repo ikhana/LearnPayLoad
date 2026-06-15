@@ -45,7 +45,7 @@ export const Posts: CollectionConfig = {
       type: 'text',
       unique: true,
       index: true,
-      admin: { position: 'sidebar' },
+      admin: { position: 'sidebar', components: { Field: '/src/components/SlugField' } },
     },
     {
       name: 'excerpt',

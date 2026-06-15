@@ -72,6 +72,7 @@ export interface Config {
     posts: Post;
     categories: Category;
     tags: Tag;
+    pages: Page;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -273,6 +275,89 @@ export interface Tag {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  title: string;
+  slug?: string | null;
+  layout?: (HeroBlock | ContentBlock | CallToActionBlock)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock".
+ */
+export interface HeroBlock {
+  heading: string;
+  subheading?: string | null;
+  backgroundImage?: (number | null) | Media;
+  /**
+   * Button text (e.g., "Get Started")
+   */
+  ctaText?: string | null;
+  /**
+   * Button URL
+   */
+  ctaLink?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentBlock".
+ */
+export interface ContentBlock {
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Optional side image
+   */
+  image?: (number | null) | Media;
+  /**
+   * Which side the image appears on
+   */
+  imageAlignment?: ('left' | 'right') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'content';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock".
+ */
+export interface CallToActionBlock {
+  heading: string;
+  description?: string | null;
+  buttons?:
+    | {
+        label: string;
+        link: string;
+        style?: ('primary' | 'secondary' | 'outline') | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cta';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -314,6 +399,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'tags';
         value: number | Tag;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -471,6 +560,65 @@ export interface TagsSelect<T extends boolean = true> {
   description?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  layout?:
+    | T
+    | {
+        hero?: T | HeroBlockSelect<T>;
+        content?: T | ContentBlockSelect<T>;
+        cta?: T | CallToActionBlockSelect<T>;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock_select".
+ */
+export interface HeroBlockSelect<T extends boolean = true> {
+  heading?: T;
+  subheading?: T;
+  backgroundImage?: T;
+  ctaText?: T;
+  ctaLink?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentBlock_select".
+ */
+export interface ContentBlockSelect<T extends boolean = true> {
+  text?: T;
+  image?: T;
+  imageAlignment?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock_select".
+ */
+export interface CallToActionBlockSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  buttons?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        style?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

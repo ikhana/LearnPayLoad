@@ -7,6 +7,8 @@ import { slugify } from '@/hooks/slugify'
 import { autoPublishedDate } from '@/hooks/autoPublishDate'
 import { logChanges } from '@/hooks/logChanges'
 import { searchPosts } from '@/endpoints/searchPosts'
+import { siteStats } from '@/endpoints/siteStats'
+import { bulkPublish } from '@/endpoints/bulkPublish'
 export const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
@@ -126,5 +128,5 @@ export const Posts: CollectionConfig = {
       },
     },
   ],
-  endpoints: [searchPosts],
+  endpoints: [searchPosts, siteStats, bulkPublish],
 }

@@ -19,6 +19,14 @@ export const Posts: CollectionConfig = {
       'Blog posts and articles — the canonical content type our AI SEO plugin will analyze.',
   },
 
+  versions: {
+    drafts: {
+      autosave: { interval: 10000 },
+    },
+
+    maxPerDoc: 50,
+  },
+
   access: {
     // Anyone can read published posts, logged-in users see all
     read: isAuthenticatedOrPublished,

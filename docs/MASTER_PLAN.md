@@ -104,9 +104,13 @@ in that step, never abstract.
 | 09.1 | Hero block + Pages collection | `Block` type, `type: 'blocks'`, `blockType` discriminant | `[ ]` | [steps/09-1-first-block.md](steps/09-1-first-block.md) |
 | 09.2 | Content + CallToAction blocks | Multiple blocks, arrays inside blocks, `labels` | `[ ]` | [steps/09-2-content-and-cta-blocks.md](steps/09-2-content-and-cta-blocks.md) |
 | 09.3 | Generate types + render blocks | `switch` on `blockType`, exhaustive check, `never` type | `[ ]` | [steps/09-3-generate-types-blocks.md](steps/09-3-generate-types-blocks.md) |
-| 10 | Versions and drafts | Utility types — `Partial<T>`, `Pick<T,K>`, `Omit<T,K>` | `[ ]` | _(coming)_ |
-| 11 | Localization (i18n) | `Record<K,V>` for locale maps | `[ ]` | _(coming)_ |
-| 12 | Plugins — using a plugin, then writing one from scratch | Module augmentation & ambient types | `[ ]` | _(coming)_ |
+| **10** | **Versions and drafts** | Utility types — `Partial<T>`, `Pick<T,K>`, `Omit<T,K>` | `[ ]` | _(see 10.1 below)_ |
+| 10.1 | Versions + drafts on Pages and Posts | `_status`, `maxPerDoc`, autosave options | `[ ]` | [steps/10-1-versions-drafts.md](steps/10-1-versions-drafts.md) |
+| **11** | **Localization (i18n)** | `Record<K,V>` for locale maps | `[ ]` | _(see 11.1 below)_ |
+| 11.1 | Localization — English + German locales | `localized: true`, `?locale=de`, fallback | `[ ]` | [steps/11-1-localization.md](steps/11-1-localization.md) |
+| **12** | **Plugins — using + writing** | Module augmentation & ambient types | `[ ]` | _(see 12.1–12.2 below)_ |
+| 12.1 | Using a plugin — SEO plugin on Pages and Posts | Plugin config, `generateTitle`, `generateURL` | `[ ]` | [steps/12-1-using-plugins.md](steps/12-1-using-plugins.md) |
+| 12.2 | Writing a plugin — lastEditedBy from scratch | `(options) => (config) => Config` pattern, preserving hooks | `[ ]` | [steps/12-2-writing-a-plugin.md](steps/12-2-writing-a-plugin.md) |
 | 13+ | _(added as we go)_ | _(added as we go)_ | | |
 
 ---

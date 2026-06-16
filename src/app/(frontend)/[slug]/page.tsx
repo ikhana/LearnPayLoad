@@ -2,6 +2,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import { notFound } from 'next/navigation'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
+import { draftMode } from 'next/headers'
 
 type Args = {
   params: Promise<{
@@ -13,11 +14,17 @@ export default async function Page({ params }: Args) {
   const { slug = 'home' } = await params
   const payload = await getPayload({ config })
 
+  const { isEnabled: isDraftMode } = await draftMode()
+
   const result = await payload.find({
     collection: 'pages',
-    where: { slug: { equals: slug } },
-    limit: 1,
+    where: {
+      slug: { equals: slug },
+      _status: { equals: 'published' },
+    },
     overrideAccess: true,
+    draft: isDraftMode,
+    limit: 1,
   })
 
   const page = result.docs[0]

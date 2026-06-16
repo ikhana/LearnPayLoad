@@ -16,7 +16,6 @@ import { Tags } from './collections/Tags'
 import { Header } from './globals/Header'
 import { Footer } from './globals/Footer'
 import { SiteSettings } from './globals/SiteSettings'
-import { searchPosts } from './endpoints/searchPosts'
 import { Pages } from './collections/Pages'
 import type { Page, Post } from './payload-types'
 

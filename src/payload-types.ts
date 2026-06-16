@@ -242,6 +242,7 @@ export interface Post {
   status: 'draft' | 'published';
   categories: number | Category;
   tags?: (number | Tag)[] | null;
+  lastEditedBy?: (number | null) | User;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -283,6 +284,7 @@ export interface Page {
   title: string;
   slug?: string | null;
   layout?: (HeroBlock | ContentBlock | CallToActionBlock)[] | null;
+  lastEditedBy?: (number | null) | User;
   updatedAt: string;
   createdAt: string;
 }
@@ -537,6 +539,7 @@ export interface PostsSelect<T extends boolean = true> {
   status?: T;
   categories?: T;
   tags?: T;
+  lastEditedBy?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -577,6 +580,7 @@ export interface PagesSelect<T extends boolean = true> {
         content?: T | ContentBlockSelect<T>;
         cta?: T | CallToActionBlockSelect<T>;
       };
+  lastEditedBy?: T;
   updatedAt?: T;
   createdAt?: T;
 }

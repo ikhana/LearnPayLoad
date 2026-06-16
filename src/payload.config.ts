@@ -2,6 +2,7 @@ import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import type { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
+import { lastEditedByPlugin } from './plugins/lastEditedBy'
 
 import path from 'path'
 import { buildConfig } from 'payload'
@@ -51,7 +52,10 @@ export default buildConfig({
     },
   }),
   sharp,
-  plugins: [seoPlugin({ collections: [Posts, Pages], generateTitle, generateURL })],
+  plugins: [
+    seoPlugin({ collections: [Posts, Pages], generateTitle, generateURL }),
+    lastEditedByPlugin({ collections: ['posts', 'pages'] }),
+  ],
   localization: {
     locales: [
       {

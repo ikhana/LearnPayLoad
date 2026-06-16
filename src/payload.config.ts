@@ -1,5 +1,8 @@
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { seoPlugin } from '@payloadcms/plugin-seo'
+import type { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
+
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -15,9 +18,19 @@ import { Footer } from './globals/Footer'
 import { SiteSettings } from './globals/SiteSettings'
 import { searchPosts } from './endpoints/searchPosts'
 import { Pages } from './collections/Pages'
+import type { Page, Post } from './payload-types'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const generateTitle: GenerateTitle<Page | Post> = ({ doc }) => {
+  return doc?.title ? `${doc.title} | Leanr PayLoad` : 'Learn Payload'
+}
+
+const generateURL: GenerateURL<Page | Post> = ({ doc }) => {
+  return doc?.slug
+    ? `${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'}/${doc.slug}`
+    : ''
+}
 
 export default buildConfig({
   admin: {
@@ -39,7 +52,7 @@ export default buildConfig({
     },
   }),
   sharp,
-  plugins: [],
+  plugins: [seoPlugin({ collections: [Posts, Pages], generateTitle, generateURL })],
   localization: {
     locales: [
       {

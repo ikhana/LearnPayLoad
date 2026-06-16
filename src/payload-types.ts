@@ -94,7 +94,7 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'de') | ('en' | 'de')[];
   globals: {
     header: Header;
     footer: Footer;
@@ -105,7 +105,7 @@ export interface Config {
     footer: FooterSelect<false> | FooterSelect<true>;
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'de';
   widgets: {
     collections: CollectionsWidget;
   };
@@ -244,6 +244,7 @@ export interface Post {
   tags?: (number | Tag)[] | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * Topic categories for organizing posts. The SEO plugin will analyze content gaps per category.
@@ -538,6 +539,7 @@ export interface PostsSelect<T extends boolean = true> {
   tags?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

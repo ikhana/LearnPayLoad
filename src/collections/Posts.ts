@@ -50,6 +50,7 @@ export const Posts: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'slug',
@@ -61,6 +62,7 @@ export const Posts: CollectionConfig = {
     {
       name: 'excerpt',
       type: 'textarea',
+      localized: true,
       admin: {
         description: 'Short summary used on listing pages and as a fallback meta description.',
       },

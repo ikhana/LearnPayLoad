@@ -104,8 +104,10 @@ in that step, never abstract.
 | 09.1 | Hero block + Pages collection | `Block` type, `type: 'blocks'`, `blockType` discriminant | `[ ]` | [steps/09-1-first-block.md](steps/09-1-first-block.md) |
 | 09.2 | Content + CallToAction blocks | Multiple blocks, arrays inside blocks, `labels` | `[ ]` | [steps/09-2-content-and-cta-blocks.md](steps/09-2-content-and-cta-blocks.md) |
 | 09.3 | Generate types + render blocks | `switch` on `blockType`, exhaustive check, `never` type | `[ ]` | [steps/09-3-generate-types-blocks.md](steps/09-3-generate-types-blocks.md) |
-| **10** | **Versions and drafts** | Utility types — `Partial<T>`, `Pick<T,K>`, `Omit<T,K>` | `[ ]` | _(see 10.1 below)_ |
-| 10.1 | Versions + drafts on Pages and Posts | `_status`, `maxPerDoc`, autosave options | `[ ]` | [steps/10-1-versions-drafts.md](steps/10-1-versions-drafts.md) |
+| **10** | **Versions and drafts** | Utility types — `Partial<T>`, `Pick<T,K>`, `Omit<T,K>` | `[ ]` | _(see 10.1–10.3 below)_ |
+| 10.1 | Version history on Pages (no drafts) | `versions: { maxPerDoc }`, versions API, restore | `[ ]` | [steps/10-1-versions-drafts.md](steps/10-1-versions-drafts.md) |
+| 10.2 | Drafts on Pages | `drafts: true`, `_status`, Save Draft / Publish | `[ ]` | [steps/10-2-drafts-pages.md](steps/10-2-drafts-pages.md) |
+| 10.3 | Drafts on Posts — replace manual status | Remove `status` field, update hooks, autosave | `[ ]` | [steps/10-3-drafts-posts.md](steps/10-3-drafts-posts.md) |
 | **11** | **Localization (i18n)** | `Record<K,V>` for locale maps | `[ ]` | _(see 11.1 below)_ |
 | 11.1 | Localization — English + German locales | `localized: true`, `?locale=de`, fallback | `[ ]` | [steps/11-1-localization.md](steps/11-1-localization.md) |
 | **12** | **Plugins — using + writing** | Module augmentation & ambient types | `[ ]` | _(see 12.1–12.2 below)_ |

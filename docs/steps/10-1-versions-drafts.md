@@ -1,287 +1,175 @@
-# Step 10.1 — Versions and drafts
+# Step 10.1 — Version history on Pages (no drafts yet)
 
-Enable version history and draft/publish workflow on Pages and Posts.
+Add version history to the Pages collection. Every save creates a
+snapshot you can browse and restore.
 
 ---
 
 ## 1. The story
 
-You've been using a manual `status` select field on Posts — `draft` or
-`published`. It works, but it has no history. If an editor accidentally
-publishes a half-written page, there's no way to revert. And there's no
-"save my work without going live" workflow.
+An editor rewrites half a page, saves, and immediately regrets it. In
+a CMS without versioning, that content is gone. Version history gives
+you a timeline of every save — click any version to see what the
+document looked like at that point, and restore it with one button.
 
-Payload's built-in versioning solves both: every save creates a version
-you can restore, and drafts let editors save work without publishing.
+This step adds version history **without** the draft/publish workflow.
+We'll add drafts in the next step. Separating them helps you understand
+that versions and drafts are two different features that Payload bundles
+under one config.
 
 ---
 
 ## 2. What you'll learn — Payload
 
 > **Official docs:** [Versions](https://payloadcms.com/docs/versions/overview)
-> **Skill reference:** `.claude/skills/payload/reference/COLLECTIONS.md` → Versioning & Drafts
 
-**Core concepts:**
+**Versions vs Drafts:**
 
-| Concept | What it means |
-|---|---|
-| `versions: true` | Saves a snapshot on every save, restoreable |
-| `versions: { drafts: true }` | Adds draft/publish workflow + version history |
-| `_status` | Auto-injected field — `'draft'` or `'published'` |
-| `autosave` | Saves drafts automatically on an interval |
-| `maxPerDoc` | Limits how many versions to keep per document |
+| Feature | What it does | Config |
+|---|---|---|
+| **Versions** | Saves a snapshot on every save, browse & restore | `versions: true` |
+| **Drafts** | Adds draft/publish workflow + `_status` field | `versions: { drafts: true }` |
 
-**What `drafts: true` gives you in the admin:**
+You can have versions without drafts. You cannot have drafts without
+versions — drafts are built on top of the version system.
 
-- "Save Draft" button — saves without publishing
-- "Publish" button — makes the document live
-- Version history panel — see all previous versions
-- Restore button — revert to any previous version
+**`versions: true` gives you:**
 
-**Important:** When drafts are enabled, the REST API only returns
-published documents by default. To include drafts, pass `?draft=true`.
-The Local API works the same: `draft: true` in the options.
+- Version history panel in the admin (sidebar → "Versions")
+- Each save creates a timestamped snapshot
+- Click any version to view it
+- "Restore" button to revert to that version
+- Versions are stored in a separate database table/collection
+
+**`maxPerDoc`:**
+
+Without a limit, versions grow forever. `maxPerDoc: 25` means Payload
+keeps the 25 most recent versions per document and deletes older ones
+automatically. This prevents your database from bloating.
 
 ---
 
 ## 3. What you'll learn — TypeScript
 
-> **TS lesson:** [05 — Utility types](../ts-lessons/05-utility-types/05-1-partial-pick-omit.md)
-
-- `_status` is auto-injected — you'll see it in generated types
-- `Partial<T>` — drafts can have incomplete data
-- `Pick<T, K>` and `Omit<T, K>` — selecting/excluding fields
+- `versions` config type and its options
+- How generated types stay the same (versions don't add fields)
 
 ---
 
 ## 4. Builds on
 
-- [Step 09.1 — Pages collection](09-1-first-block.md) — the collection we're adding versions to
-- [Step 01.8 — status field](01-8-status.md) — the manual status field we'll replace
+- [Step 09.1 — Pages collection](09-1-first-block.md)
 
 ---
 
 ## 5. Steps
 
-### 5a. Add versions to Pages
+### 5a. Enable versions on Pages
 
-Open `src/collections/Pages.ts` and add `versions` and `_status` to
-the default columns:
+Open `src/collections/Pages.ts` and add `versions`:
 
 ```ts
 export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'slug', '_status', 'updatedAt'],
+    defaultColumns: ['title', 'slug', 'updatedAt'],
     group: 'Content',
   },
   versions: {
-    drafts: true,
     maxPerDoc: 25,
   },
   // ... fields stay the same
 }
 ```
 
-That's it. Three lines added:
-- `versions: { drafts: true, maxPerDoc: 25 }` — enable drafts, keep up to 25 versions
-- `'_status'` in `defaultColumns` — show draft/published in the list view
+That's it. No fields change, no hooks needed.
 
-### 5b. Add versions to Posts
+### 5b. Understand what happened in the database
 
-Posts already has a manual `status` select field. When you enable
-`drafts: true`, Payload injects its own `_status` field that does the
-same thing — but with proper version history and draft/publish buttons.
+When you enable `versions`, Payload creates a second table/collection:
 
-Open `src/collections/Posts.ts`:
-
-**1. Add the `versions` config:**
-
-```ts
-export const Posts: CollectionConfig = {
-  slug: 'posts',
-  admin: {
-    useAsTitle: 'title',
-    defaultColumns: ['title', '_status', 'publishedAt', 'updatedAt'],
-    group: 'Content',
-    description:
-      'Blog posts and articles — the canonical content type our AI SEO plugin will analyze.',
-  },
-  versions: {
-    drafts: true,
-    maxPerDoc: 25,
-  },
-  // ... rest stays the same
-}
-```
-
-**2. Remove the manual `status` field** from the `fields` array — the
-whole block from `name: 'status'` through its closing brace. Payload's
-`_status` replaces it.
-
-**3. Update the access control.** Your `isAuthenticatedOrPublished`
-access function currently checks `status: { equals: 'published' }`.
-Update it to check `_status` instead:
-
-Open `src/access/isAuthenticatedOrPublished.ts`:
-
-```ts
-import type { Access } from 'payload'
-
-export const isAuthenticatedOrPublished: Access = ({ req }) => {
-  if (req.user) return true
-
-  return {
-    _status: { equals: 'published' },
-  }
-}
-```
-
-**4. Update the `autoPublishedDate` hook** if it references the old
-`status` field — it should check `_status` instead, or better yet,
-check the `operation` and let the draft/publish system handle status:
-
-```ts
-// In the hook, change:
-if (data.status === 'published')
-// to:
-if (data._status === 'published')
-```
-
-**What's happening:**
-
-| Before (manual) | After (built-in) |
+| Database | What it creates |
 |---|---|
-| `status` select field you created | `_status` field Payload injects |
-| Just a field — no history | Full version history with restore |
-| "Save" button only | "Save Draft" + "Publish" buttons |
-| Manual status change | Proper workflow with state management |
+| MongoDB | `pages_versions` collection |
+| PostgreSQL / SQLite | `pages_versions` table |
 
-### 5c. Understand the version options
+Every time you save a page, the current state is copied into the
+versions table before the update. The versions table has:
 
-SGT uses different version configs for different collections:
+- `parent` — reference to the original document ID
+- `version` — the full document snapshot at that point in time
+- `createdAt` — when this version was saved
+- `updatedAt` — when this version was saved
 
-```ts
-// Pages — autosave on, keep 50 versions
-versions: {
-  drafts: { autosave: true },
-  maxPerDoc: 50,
-}
+### 5c. Test version history in the admin
 
-// Products — no autosave, keep only 1 version
-versions: {
-  drafts: { autosave: false },
-  maxPerDoc: 1,
-}
+1. Edit your existing page → change the title → save
+2. Change the title again → save
+3. Click "Versions" in the sidebar (or the version history tab)
+4. You should see 2-3 versions with timestamps
+5. Click an older version → you see the document at that point
+6. Click "Restore this version" → the document reverts
 
-// Blog Posts — autosave every 30 seconds, validate before saving
-versions: {
-  drafts: {
-    autosave: { interval: 30000 },
-    validate: true,
-  },
-  maxPerDoc: 50,
-}
+### 5d. Test via the API
+
+The versions REST API:
+
+```
+GET /api/pages/:id/versions         → list all versions of a page
+GET /api/pages/:id/versions/:versionId  → get a specific version
+POST /api/pages/:id/versions/:versionId → restore a version
 ```
 
-| Option | What it does | When to use |
-|---|---|---|
-| `drafts: true` | Simple on/off | Most collections |
-| `drafts: { autosave: true }` | Auto-saves drafts as you type | Long-form content (pages, blog posts) |
-| `drafts: { autosave: { interval: 30000 } }` | Custom autosave interval (ms) | Control save frequency |
-| `drafts: { validate: true }` | Validates fields on draft save too | When drafts must be valid |
-| `maxPerDoc: 25` | Keep max 25 versions per document | Prevent database bloat |
+Try in the browser (while logged in):
 
-For our learning project, `drafts: true` with `maxPerDoc: 25` is enough.
+```
+http://localhost:3000/api/pages/1/versions
+```
 
-### 5d. Update the frontend query
+You'll see an array of version objects, each with the full document
+snapshot and a timestamp.
 
-Your `[slug]/page.tsx` needs to know about drafts. Right now it uses
-`overrideAccess: true` which returns everything including drafts. For
-a proper setup, you'd only show published pages on the frontend:
+Local API equivalent:
 
-```tsx
-const result = await payload.find({
+```ts
+const versions = await payload.findVersions({
   collection: 'pages',
   where: {
-    slug: { equals: slug },
-    _status: { equals: 'published' },
+    parent: { equals: pageId },
   },
-  limit: 1,
 })
 ```
-
-Or if you want draft preview support (like SGT does with Next.js
-draft mode):
-
-```tsx
-import { draftMode } from 'next/headers'
-
-// Inside the page component:
-const { isEnabled: isDraftMode } = await draftMode()
-
-const result = await payload.find({
-  collection: 'pages',
-  where: { slug: { equals: slug } },
-  draft: isDraftMode,
-  limit: 1,
-})
-```
-
-For now, keep `overrideAccess: true` so you can see everything while
-developing.
-
-### 5e. Generate types
-
-```bash
-pnpm generate:types
-```
-
-Open `src/payload-types.ts` — the `Page` and `Post` interfaces now
-have `_status?: ('draft' | 'published') | null`. The `Post` interface
-no longer has the manual `status` field.
 
 ---
 
 ## 6. Verify
 
 - [ ] Dev server starts without errors
-- [ ] Pages collection — edit a page → you see "Save Draft" and "Publish" buttons
-- [ ] Pages list view — `_status` column shows draft/published
-- [ ] Save a draft → it's not visible via the REST API (`/api/pages`) unless you add `?draft=true`
-- [ ] Publish the page → it appears in the REST API
-- [ ] Version history tab — shows previous versions with timestamps
-- [ ] Restore a previous version → content reverts
-- [ ] Posts collection — same draft/publish workflow works
-- [ ] Posts list view — `_status` column replaces the old `status` column
-- [ ] `payload-types.ts` — `_status` field present, old `status` field gone from Post
+- [ ] Edit a page and save twice → "Versions" panel shows 2 versions
+- [ ] Click an older version → see the old content
+- [ ] Restore an older version → document reverts
+- [ ] `/api/pages/1/versions` returns version list
+- [ ] After 25+ saves, oldest versions are pruned (if you want to test)
 
 ---
 
 ## 7. Commit
 
 ```bash
-git add src/collections/Pages.ts src/collections/Posts.ts src/access/isAuthenticatedOrPublished.ts src/payload-types.ts
-git commit -m "step 10.1 — versions and drafts on Pages and Posts"
+git add src/collections/Pages.ts
+git commit -m "step 10.1 — version history on Pages"
 ```
 
 ---
 
 ## 8. Unlocks
 
-- **Step 11** — Localization (i18n)
-- You now have a proper editorial workflow. Content goes through
-  draft → published with full version history.
-- **Interview connection:** "How do you handle content workflows?" →
-  Payload's built-in versioning with `_status`, autosave, and
-  `maxPerDoc` to control storage. SGT uses different version configs
-  per collection — aggressive autosave for pages, minimal versions
-  for products.
+- **Step 10.2** — Add drafts (the draft/publish workflow)
 
 ---
 
 | Nav | |
 |---|---|
 | ← Previous | [Step 09.3 — generate types + render blocks](09-3-generate-types-blocks.md) |
-| → Next | [Step 11 — localization](11-1-localization.md) |
+| → Next | [Step 10.2 — drafts on Pages](10-2-drafts-pages.md) |

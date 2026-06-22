@@ -20,11 +20,8 @@ export const Posts: CollectionConfig = {
   },
 
   versions: {
-    drafts: {
-      autosave: { interval: 10000 },
-    },
-
-    maxPerDoc: 50,
+    drafts: { autosave: { interval: 10000 } },
+    maxPerDoc: 25,
   },
 
   access: {
@@ -95,28 +92,7 @@ export const Posts: CollectionConfig = {
         },
       },
     },
-    {
-      name: 'status',
-      type: 'select',
-      options: [
-        {
-          label: 'Draft',
-          value: 'draft',
-        },
-        {
-          label: 'Published',
-          value: 'published',
-        },
-      ],
-      defaultValue: 'draft',
-      required: true,
-      admin: {
-        position: 'sidebar',
-        components: {
-          Cell: '/components/StatusCell#StatusCell',
-        },
-      },
-    },
+
     {
       name: 'categories',
       type: 'relationship',

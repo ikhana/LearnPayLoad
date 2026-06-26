@@ -1,3 +1,2 @@
-export default function HomePage() {
-  return <h1>Home works</h1>
-}
+import PageTemplate from './[slug]/page'
+export default PageTemplate

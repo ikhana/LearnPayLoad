@@ -239,7 +239,6 @@ export interface Post {
   } | null;
   featuredImage?: (number | null) | Media;
   publishedAt?: string | null;
-  status: 'draft' | 'published';
   categories: number | Category;
   tags?: (number | Tag)[] | null;
   lastEditedBy?: (number | null) | User;
@@ -536,7 +535,6 @@ export interface PostsSelect<T extends boolean = true> {
   content?: T;
   featuredImage?: T;
   publishedAt?: T;
-  status?: T;
   categories?: T;
   tags?: T;
   lastEditedBy?: T;

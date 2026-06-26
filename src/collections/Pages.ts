@@ -10,6 +10,14 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
     group: 'Content',
   },
+  versions: {
+    drafts: {
+      autosave: {
+        interval: 375,
+      },
+    },
+    maxPerDoc: 25,
+  },
   fields: [
     {
       name: 'title',

@@ -3,6 +3,7 @@ import config from '@payload-config'
 import { notFound } from 'next/navigation'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { draftMode } from 'next/headers'
+import { RefreshRouteOnSave } from './RefreshRouteOnSave'
 
 type Args = {
   params: Promise<{
@@ -20,7 +21,7 @@ export default async function Page({ params }: Args) {
     collection: 'pages',
     where: {
       slug: { equals: slug },
-      _status: { equals: 'published' },
+      ...(isDraftMode ? {} : { _status: { equals: 'published' } }),
     },
     overrideAccess: true,
     draft: isDraftMode,
@@ -32,6 +33,7 @@ export default async function Page({ params }: Args) {
 
   return (
     <main>
+      <RefreshRouteOnSave />
       <h1>{page.title}</h1>
       <RenderBlocks blocks={page.layout} />
     </main>

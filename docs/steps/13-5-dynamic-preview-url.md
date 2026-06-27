@@ -140,10 +140,10 @@ admin: {
       const baseURL = process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3000'
       const slug = data?.slug
 
-      const path = !slug || slug === 'home' ? '' : `/${slug}`
-      const localeParam = locale?.code ? `?locale=${locale.code}` : ''
+      const pagePath = !slug || slug === 'home' ? '/' : `/${slug}`
+      const localeParam = locale?.code ? `&locale=${locale.code}` : ''
 
-      return `${baseURL}${path}${localeParam}`
+      return `${baseURL}/preview?path=${encodeURIComponent(pagePath)}${localeParam}`
     },
     collections: ['pages'],
     breakpoints: [

@@ -137,7 +137,73 @@ Open `.env` and add:
 NEXT_PUBLIC_PAYLOAD_URL=http://localhost:3000
 ```
 
-### 5c. Create the RefreshRouteOnSave wrapper component
+### 5c. Create the preview route (enables draft mode)
+
+This is the critical piece most tutorials miss. Next.js draft mode must
+be **explicitly enabled** via an API route. Without it, `draftMode()`
+always returns `false` and the iframe only shows published content.
+
+Create `src/app/(frontend)/preview/route.ts`:
+
+```ts
+import type { PayloadRequest } from 'payload'
+import { getPayload } from 'payload'
+import { draftMode } from 'next/headers'
+import { redirect } from 'next/navigation'
+import configPromise from '@payload-config'
+
+export async function GET(req: Request): Promise<Response> {
+  const payload = await getPayload({ config: configPromise })
+  const { searchParams } = new URL(req.url)
+  const path = searchParams.get('path')
+
+  if (!path) {
+    return new Response('No path provided', { status: 404 })
+  }
+
+  if (!path.startsWith('/')) {
+    return new Response('This endpoint can only be used for relative previews', {
+      status: 500,
+    })
+  }
+
+  let user
+
+  try {
+    user = await payload.auth({
+      req: req as unknown as PayloadRequest,
+      headers: req.headers,
+    })
+  } catch (error) {
+    payload.logger.error({ err: error }, 'Error verifying token for live preview')
+    return new Response('You are not allowed to preview this page', { status: 403 })
+  }
+
+  const draft = await draftMode()
+
+  if (!user) {
+    draft.disable()
+    return new Response('You are not allowed to preview this page', { status: 403 })
+  }
+
+  draft.enable()
+  redirect(path)
+}
+```
+
+**What this route does:**
+
+1. Receives a `?path=/about` query parameter
+2. Authenticates the user via Payload's `auth()` method
+3. Calls `draftMode().enable()` — sets the `__prerender_bypass` cookie
+4. Redirects to the actual page path
+
+The Live Preview iframe URL points to this route first (e.g.,
+`/preview?path=/about`), which enables draft mode and then redirects
+to `/about`. All subsequent `router.refresh()` calls keep draft mode
+active because the cookie persists.
+
+### 5d. Create the RefreshRouteOnSave wrapper component
 
 Create the file `src/app/(frontend)/[slug]/RefreshRouteOnSave.tsx`:
 

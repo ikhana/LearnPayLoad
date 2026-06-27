@@ -39,7 +39,15 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     livePreview: {
-      url: 'http://localhost:3000',
+      url: ({ data, locale }) => {
+        const baseURL = process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3000'
+        const slug = data?.slug
+
+        const path = !slug || slug === 'home' ? '' : `/${slug}`
+        const localeParam = locale?.code ? `?locale=${locale.code}` : ''
+
+        return `${baseURL}${path}${localeParam}`
+      },
       collections: ['pages'],
       breakpoints: [
         {

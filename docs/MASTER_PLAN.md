@@ -113,13 +113,13 @@ in that step, never abstract.
 | **12** | **Plugins — using + writing** | Module augmentation & ambient types | `[ ]` | _(see 12.1–12.2 below)_ |
 | 12.1 | Using a plugin — SEO plugin on Pages and Posts | Plugin config, `generateTitle`, `generateURL` | `[ ]` | [steps/12-1-using-plugins.md](steps/12-1-using-plugins.md) |
 | 12.2 | Writing a plugin — lastEditedBy from scratch | `(options) => (config) => Config` pattern, preserving hooks | `[ ]` | [steps/12-2-writing-a-plugin.md](steps/12-2-writing-a-plugin.md) |
-| **13** | **Live Preview — real-time editing in the admin** | `'use client'`, `React.FC`, env vars | `[ ]` | _(see 13.1–13.6 below)_ |
-| 13.1 | What is Live Preview — architecture + concepts | No new TS (concept step) | `[ ]` | [steps/13-1-what-is-live-preview.md](steps/13-1-what-is-live-preview.md) |
-| 13.2 | Add `livePreview` config to payload.config.ts | `admin.livePreview` typed config | `[ ]` | [steps/13-2-live-preview-config.md](steps/13-2-live-preview-config.md) |
-| 13.3 | Drafts + autosave on Pages (prerequisite) | `versions.drafts.autosave.interval` | `[ ]` | [steps/13-3-drafts-autosave-pages.md](steps/13-3-drafts-autosave-pages.md) |
-| 13.4 | RefreshRouteOnSave component | `'use client'`, `React.FC`, wrapping library components | `[ ]` | [steps/13-4-refresh-route-on-save.md](steps/13-4-refresh-route-on-save.md) |
-| 13.5 | Dynamic preview URL from document slug | Function as config value, optional chaining, template literals | `[ ]` | [steps/13-5-dynamic-preview-url.md](steps/13-5-dynamic-preview-url.md) |
-| 13.6 | Test the full Live Preview loop | No new TS (testing step) | `[ ]` | [steps/13-6-test-full-loop.md](steps/13-6-test-full-loop.md) |
+| **13** | **Live Preview — real-time editing in the admin** | `'use client'`, `React.FC`, env vars | `[x]` | _(see 13.1–13.6 below)_ |
+| 13.1 | What is Live Preview — architecture + concepts | No new TS (concept step) | `[x]` | [steps/13-1-what-is-live-preview.md](steps/13-1-what-is-live-preview.md) |
+| 13.2 | Add `livePreview` config to payload.config.ts | `admin.livePreview` typed config | `[x]` | [steps/13-2-live-preview-config.md](steps/13-2-live-preview-config.md) |
+| 13.3 | Drafts + autosave on Pages (prerequisite) | `versions.drafts.autosave.interval` | `[x]` | [steps/13-3-drafts-autosave-pages.md](steps/13-3-drafts-autosave-pages.md) |
+| 13.4 | RefreshRouteOnSave component | `'use client'`, `React.FC`, wrapping library components | `[x]` | [steps/13-4-refresh-route-on-save.md](steps/13-4-refresh-route-on-save.md) |
+| 13.5 | Dynamic preview URL from document slug | Function as config value, optional chaining, template literals | `[x]` | [steps/13-5-dynamic-preview-url.md](steps/13-5-dynamic-preview-url.md) |
+| 13.6 | Test the full Live Preview loop | No new TS (testing step) | `[x]` | [steps/13-6-test-full-loop.md](steps/13-6-test-full-loop.md) |
 | 14+ | _(added as we go)_ | _(added as we go)_ | | |
 
 ---
